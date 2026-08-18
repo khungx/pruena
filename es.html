@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Coat — Pintura de Casas Interior y Exterior en Houston, TX</title>
+<meta name="description" content="Prime Coat es una empresa de pintura de casas en Houston para trabajos de interior y exterior. Líneas limpias, buena preparación, acabado impecable. Pide tu cotización por correo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16283B;
+    --ink-soft:#3A4A5C;
+    --plaster:#F4F5F3;
+    --plaster-2:#EBEDE9;
+    --white:#FCFCFB;
+    --ochre:#C88A3A;
+    --ochre-deep:#A96F26;
+    --sw-ochre:#D8A24A;
+    --sw-sage:#7C9070;
+    --sw-brick:#B05C43;
+    --sw-teal:#2E6E6A;
+    --sw-blue:#5B7C99;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--plaster);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.wordmark{font-family:"Bricolage Grotesque","Inter",sans-serif;line-height:1.02;letter-spacing:-0.02em}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(244,245,243,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--plaster-2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .wordmark{font-weight:800;font-size:22px;letter-spacing:-0.03em;display:flex;align-items:center;gap:10px}
+  .wordmark .dot{width:14px;height:14px;border-radius:3px;background:var(--ochre);box-shadow:4px 0 0 var(--sw-sage),8px 0 0 var(--sw-brick)}
+  .nav-cta{font-weight:600;font-size:14px;text-decoration:none;padding:10px 18px;border-radius:100px;background:var(--ink);color:var(--white);transition:transform .15s ease,background .15s ease}
+  .nav-cta:hover{background:var(--ochre-deep);transform:translateY(-1px)}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .lang-switch{display:flex;gap:2px;font-size:13px;font-weight:600;border:1px solid var(--plaster-2);border-radius:100px;overflow:hidden}
+  .lang-switch a{padding:7px 13px;text-decoration:none;color:var(--ink-soft);transition:background .15s ease,color .15s ease}
+  .lang-switch a.active{background:var(--ink);color:var(--white)}
+  .lang-switch a:not(.active):hover{background:var(--plaster-2)}
+
+  .hero{position:relative;overflow:hidden;background:var(--ink);color:var(--white)}
+  .hero .wrap{position:relative;z-index:2;padding-top:88px;padding-bottom:96px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sw-ochre);margin-bottom:22px}
+  .hero h1{font-size:clamp(44px,8vw,86px);font-weight:800;max-width:14ch}
+  .hero h1 em{font-style:normal;color:var(--ochre);position:relative}
+  .hero p.lede{font-size:clamp(17px,2.2vw,21px);max-width:52ch;margin-top:26px;color:#C9D2DB}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .btn{font-weight:600;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;transition:transform .15s ease,background .15s ease,box-shadow .15s ease}
+  .btn-primary{background:var(--ochre);color:var(--ink)}
+  .btn-primary:hover{background:var(--sw-ochre);transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,138,58,.35)}
+  .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.28)}
+  .btn-ghost:hover{border-color:var(--white);transform:translateY(-2px)}
+
+  .deck{position:absolute;inset:0;z-index:1;display:flex;pointer-events:none}
+  .deck span{flex:1;opacity:.16;transform:translateY(100%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .deck span:nth-child(1){background:var(--sw-teal);animation-delay:.05s}
+  .deck span:nth-child(2){background:var(--sw-sage);animation-delay:.12s}
+  .deck span:nth-child(3){background:var(--sw-ochre);animation-delay:.19s}
+  .deck span:nth-child(4){background:var(--sw-brick);animation-delay:.26s}
+  .deck span:nth-child(5){background:var(--sw-blue);animation-delay:.33s}
+  @keyframes rise{to{transform:translateY(60%);}}
+
+  section{padding:88px 0}
+  .sec-label{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-deep);margin-bottom:16px}
+  .sec-title{font-size:clamp(30px,4.5vw,46px);font-weight:800;max-width:18ch}
+  .sec-intro{font-size:18px;color:var(--ink-soft);max-width:56ch;margin-top:18px}
+
+  .services{background:var(--white)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .svc{position:relative;background:var(--plaster);border-radius:var(--radius);padding:38px 34px;border:1px solid var(--plaster-2);overflow:hidden}
+  .svc .chip{width:46px;height:46px;border-radius:10px;margin-bottom:24px}
+  .svc:nth-child(1) .chip{background:var(--sw-teal)}
+  .svc:nth-child(2) .chip{background:var(--sw-brick)}
+  .svc h3{font-size:24px;font-weight:700;margin-bottom:12px}
+  .svc p{color:var(--ink-soft);font-size:16px}
+  .svc ul{list-style:none;margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+  .svc li{font-size:13px;font-weight:500;background:var(--white);border:1px solid var(--plaster-2);padding:7px 14px;border-radius:100px;color:var(--ink)}
+
+  .expect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+  .step{padding:30px 26px;background:var(--white);border-radius:var(--radius);border:1px solid var(--plaster-2)}
+  .step .n{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:var(--ochre);letter-spacing:.05em;margin-bottom:16px;display:block}
+  .step h3{font-size:19px;font-weight:700;margin-bottom:8px}
+  .step p{font-size:15px;color:var(--ink-soft)}
+
+  .area{background:var(--ink);color:var(--white)}
+  .area .sec-label{color:var(--sw-ochre)}
+  .area .sec-title{color:var(--white)}
+  .area p{color:#C9D2DB;font-size:18px;max-width:54ch;margin-top:18px}
+  .area .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .area .tags span{font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,.22);padding:8px 16px;border-radius:100px}
+
+  .contact{background:var(--white)}
+  .contact-card{background:var(--plaster);border-radius:20px;border:1px solid var(--plaster-2);padding:clamp(36px,6vw,68px);text-align:center;position:relative;overflow:hidden}
+  .contact-card::before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,var(--sw-teal),var(--sw-sage),var(--sw-ochre),var(--sw-brick),var(--sw-blue))}
+  .contact-card h2{font-size:clamp(28px,4vw,42px);font-weight:800;max-width:20ch;margin:0 auto}
+  .contact-card p{color:var(--ink-soft);font-size:18px;margin-top:16px}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+  .btn-ink{background:var(--ink);color:var(--white)}
+  .btn-ink:hover{background:var(--ochre-deep);transform:translateY(-2px)}
+  .email-plain{margin-top:22px;font-size:15px;color:var(--ink-soft)}
+  .email-plain a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--ochre)}
+
+  footer{background:var(--ink);color:#9FB0C0;padding:44px 0;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  footer .wordmark{color:var(--white);font-size:18px}
+  footer .wordmark .dot{box-shadow:4px 0 0 var(--sw-sage),8px 0 0 var(--sw-brick)}
+
+  @media (max-width:720px){
+    .svc-grid{grid-template-columns:1fr}
+    .expect-grid{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .hero .wrap{padding-top:64px;padding-bottom:72px}
+  }
+
+  a:focus-visible,.btn:focus-visible,.nav-cta:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:6px}
+
+  @media (prefers-reduced-motion:reduce){
+    .deck span{animation:none;transform:translateY(60%)}
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="wordmark"><span class="dot"></span>Prime Coat</div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <a href="index.html">EN</a>
+        <a href="es.html" class="active">ES</a>
+      </div>
+      <a class="nav-cta" href="#contacto">Pide tu cotización</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="deck" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Interior y Exterior · Houston, TX</p>
+    <h1>Una capa nueva, hecha <em>bien</em> a la primera.</h1>
+    <p class="lede">Prime Coat es un equipo de pintura de casas en Houston para quienes quieren líneas limpias, buena preparación y un trabajo ordenado de principio a fin — por dentro y por fuera.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contacto">Pedir cotización</a>
+      <a class="btn btn-ghost" href="#servicios">Ver lo que hacemos</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="wrap">
+    <p class="sec-label">Lo que pintamos</p>
+    <h2 class="sec-title">Dos cosas, y las hacemos bien.</h2>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="chip"></div>
+        <h3>Pintura de interiores</h3>
+        <p>Paredes, techos, molduras, puertas y gabinetes. Movemos los muebles, protegemos tus pisos, cortamos líneas limpias y dejamos el espacio más limpio de como lo encontramos.</p>
+        <ul>
+          <li>Paredes y techos</li><li>Molduras y puertas</li><li>Gabinetes</li><li>Paredes de acento</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="chip"></div>
+        <h3>Pintura de exteriores</h3>
+        <p>Fachadas, estuco, aleros y puertas de entrada. Lavamos, raspamos, resanamos e imprimamos antes de la capa final para que aguante el sol y la lluvia de Houston.</p>
+        <ul>
+          <li>Fachadas y estuco</li><li>Aleros</li><li>Puertas de entrada</li><li>Cercas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ ESPERAR -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Qué esperar</p>
+    <h2 class="sec-title">Sin sorpresas, de principio a fin.</h2>
+    <div class="expect-grid">
+      <div class="step">
+        <span class="n">Preparación</span>
+        <h3>Preparamos como se debe</h3>
+        <p>Lavado, lijado, resane, cinta e imprimación. La preparación es lo que hace que el acabado dure — por eso no la saltamos.</p>
+      </div>
+      <div class="step">
+        <span class="n">Pintura</span>
+        <h3>Capas limpias y parejas</h3>
+        <p>Pintura de calidad, líneas rectas y cobertura completa. Tratamos tu casa como si fuera la nuestra.</p>
+      </div>
+      <div class="step">
+        <span class="n">Limpieza</span>
+        <h3>Lo dejamos impecable</h3>
+        <p>Cinta retirada, pisos despejados, basura recogida. Entras a un cuarto terminado, no a un desorden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA DE SERVICIO -->
+<section class="area">
+  <div class="wrap">
+    <p class="sec-label">Zona de servicio</p>
+    <h2 class="sec-title">Pintamos con orgullo en Houston y alrededores.</h2>
+    <p>Trabajamos en toda el área metropolitana de Houston. ¿No sabes si llegamos hasta ti? Solo pregunta — si no cubrimos tu zona, te orientamos hacia dónde acudir.</p>
+    <div class="tags">
+      <span>Houston</span><span>Katy</span><span>Sugar Land</span><span>Pearland</span><span>Cypress</span><span>The Woodlands</span><span>Pasadena</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2>¿Listo para una capa nueva?</h2>
+      <p>Cuéntanos sobre tu proyecto y te damos una cotización. Interior, exterior o los dos.</p>
+      <div class="contact-actions">
+        <a class="btn btn-ink" href="mailto:jax3485403@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&amp;body=Hola%20Prime%20Coat%2C%20quisiera%20una%20cotizaci%C3%B3n.%20Este%20es%20mi%20proyecto%3A">Escríbenos para cotizar</a>
+        <a class="btn btn-primary" href="tel:+13466345497">Llama: (346) 634-5497</a>
+      </div>
+      <p class="email-plain">O contáctanos directo en <a href="mailto:jax3485403@gmail.com">jax3485403@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark"><span class="dot"></span>Prime Coat</div>
+    <div>Pintura de casas interior y exterior · Houston, TX</div>
+    <div>© 2026 Prime Coat</div>
+  </div>
+</footer>
+
+</body>
+</html>
