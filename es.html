@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prime Coat — Pintura de Casas Interior y Exterior en Houston, TX</title>
-<meta name="description" content="Prime Coat es una empresa de pintura de casas en Houston para trabajos de interior y exterior. Líneas limpias, buena preparación, acabado impecable. Pide tu cotización por correo.">
+<title>Pintura de Casas en Houston, TX | Pintores de Interior y Exterior — Prime Coat</title>
+<meta name="description" content="Prime Coat es una empresa de pintura de casas en Houston para interior y exterior. Buena preparación, líneas limpias, acabado impecable. Cotizaciones gratis en Houston, Katy, Sugar Land y Cypress.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
   .hero{position:relative;overflow:hidden;background:var(--ink);color:var(--white)}
   .hero .wrap{position:relative;z-index:2;padding-top:88px;padding-bottom:96px}
   .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sw-ochre);margin-bottom:22px}
-  .hero h1{font-size:clamp(44px,8vw,86px);font-weight:800;max-width:14ch}
+  .hero h1{font-size:clamp(38px,6.4vw,72px);font-weight:800;max-width:17ch}
   .hero h1 em{font-style:normal;color:var(--ochre);position:relative}
   .hero p.lede{font-size:clamp(17px,2.2vw,21px);max-width:52ch;margin-top:26px;color:#C9D2DB}
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
@@ -94,6 +94,24 @@
   .step h3{font-size:19px;font-weight:700;margin-bottom:8px}
   .step p{font-size:15px;color:var(--ink-soft)}
 
+  .reviews{background:var(--plaster)}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .review{background:var(--white);border:1px solid var(--plaster-2);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column}
+  .review .stars{color:var(--ochre);font-size:15px;letter-spacing:2px;margin-bottom:16px}
+  .review blockquote{font-size:16px;color:var(--ink);flex:1}
+  .review cite{margin-top:20px;font-style:normal;font-size:14px;font-weight:600}
+  .review cite span{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:2px}
+
+  .faq{background:var(--white)}
+  .faq-list{margin-top:44px;border-top:1px solid var(--plaster-2)}
+  .faq-item{border-bottom:1px solid var(--plaster-2)}
+  .faq-item summary{cursor:pointer;list-style:none;padding:24px 40px 24px 0;position:relative;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;border-right:2px solid var(--ochre);border-bottom:2px solid var(--ochre);transform:translateY(-70%) rotate(45deg);transition:transform .2s ease}
+  .faq-item[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+  .faq-item summary:hover{color:var(--ochre-deep)}
+  .faq-item .answer{padding:0 40px 26px 0;color:var(--ink-soft);font-size:16px}
+
   .work{background:var(--white)}
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
   .work-item{border-radius:var(--radius);overflow:hidden;background:var(--plaster)}
@@ -131,11 +149,13 @@
     .svc-grid{grid-template-columns:1fr}
     .expect-grid{grid-template-columns:1fr}
     .work-grid{grid-template-columns:1fr}
+    .review-grid{grid-template-columns:1fr}
     section{padding:64px 0}
     .hero .wrap{padding-top:64px;padding-bottom:72px}
   }
   @media (max-width:960px) and (min-width:721px){
     .work-grid{grid-template-columns:repeat(2,1fr)}
+    .review-grid{grid-template-columns:1fr}
   }
 
   a:focus-visible,.btn:focus-visible,.nav-cta:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:6px}
@@ -169,7 +189,7 @@
   </div>
   <div class="wrap">
     <p class="eyebrow">Interior y Exterior · Houston, TX</p>
-    <h1>Una capa nueva, hecha <em>bien</em> a la primera.</h1>
+    <h1>Pintura de casas en Houston — hecha <em>bien</em> a la primera.</h1>
     <p class="lede">Prime Coat es un equipo de pintura de casas en Houston para quienes quieren líneas limpias, buena preparación y un trabajo ordenado de principio a fin — por dentro y por fuera.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#contacto">Pedir cotización</a>
@@ -182,11 +202,11 @@
 <section class="services" id="servicios">
   <div class="wrap">
     <p class="sec-label">Lo que pintamos</p>
-    <h2 class="sec-title">Dos cosas, y las hacemos bien.</h2>
+    <h2 class="sec-title">Servicios de pintura de interiores y exteriores.</h2>
     <div class="svc-grid">
       <div class="svc">
         <div class="chip"></div>
-        <h3>Pintura de interiores</h3>
+        <h3>Pintura de interiores de casas</h3>
         <p>Paredes, techos, molduras, puertas y gabinetes. Movemos los muebles, protegemos tus pisos, cortamos líneas limpias y dejamos el espacio más limpio de como lo encontramos.</p>
         <ul>
           <li>Paredes y techos</li><li>Molduras y puertas</li><li>Gabinetes</li><li>Paredes de acento</li>
@@ -194,7 +214,7 @@
       </div>
       <div class="svc">
         <div class="chip"></div>
-        <h3>Pintura de exteriores</h3>
+        <h3>Pintura de exteriores y fachadas</h3>
         <p>Fachadas, estuco, aleros y puertas de entrada. Lavamos, raspamos, resanamos e imprimamos antes de la capa final para que aguante el sol y la lluvia de Houston.</p>
         <ul>
           <li>Fachadas y estuco</li><li>Aleros</li><li>Puertas de entrada</li><li>Cercas</li>
@@ -207,8 +227,8 @@
 <!-- QUÉ ESPERAR -->
 <section>
   <div class="wrap">
-    <p class="sec-label">Qué esperar</p>
-    <h2 class="sec-title">Sin sorpresas, de principio a fin.</h2>
+    <p class="sec-label">Por qué nos eligen</p>
+    <h2 class="sec-title">Por qué los dueños de casa eligen Prime Coat.</h2>
     <div class="expect-grid">
       <div class="step">
         <span class="n">Preparación</span>
@@ -233,7 +253,7 @@
 <section class="work" id="trabajo">
   <div class="wrap">
     <p class="sec-label">Nuestro trabajo</p>
-    <h2 class="sec-title">Algunos proyectos recientes.</h2>
+    <h2 class="sec-title">Proyectos recientes de pintura en Houston.</h2>
     <p class="sec-intro">Una muestra de trabajos de interior y exterior en el área de Houston — casas reales, acabados reales.</p>
     <div class="work-grid">
       <div class="work-item">
@@ -264,14 +284,79 @@
   </div>
 </section>
 
+<!-- RESEÑAS -->
+<section class="reviews" id="resenas">
+  <div class="wrap">
+    <p class="sec-label">Reseñas</p>
+    <h2 class="sec-title">Lo que dicen nuestros clientes.</h2>
+    <p class="sec-intro">Comentarios reales de dueños de casa en el área de Houston para los que hemos pintado.</p>
+    <div class="review-grid">
+      <!-- TODO: reemplazar con reseñas reales de clientes (Google, Facebook o directas) -->
+      <div class="review">
+        <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Agrega aquí una reseña real — qué le pintaron al cliente y qué destacó del trabajo.</blockquote>
+        <cite>Nombre del cliente<span>Zona, TX</span></cite>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Agrega aquí una reseña real — qué le pintaron al cliente y qué destacó del trabajo.</blockquote>
+        <cite>Nombre del cliente<span>Zona, TX</span></cite>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote>Agrega aquí una reseña real — qué le pintaron al cliente y qué destacó del trabajo.</blockquote>
+        <cite>Nombre del cliente<span>Zona, TX</span></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ZONA DE SERVICIO -->
 <section class="area">
   <div class="wrap">
     <p class="sec-label">Zona de servicio</p>
-    <h2 class="sec-title">Pintamos con orgullo en Houston y alrededores.</h2>
+    <h2 class="sec-title">Pintores de casas en Houston y alrededores.</h2>
     <p>Trabajamos en toda el área metropolitana de Houston. ¿No sabes si llegamos hasta ti? Solo pregunta — si no cubrimos tu zona, te orientamos hacia dónde acudir.</p>
     <div class="tags">
       <span>Houston</span><span>Katy</span><span>Sugar Land</span><span>Pearland</span><span>Cypress</span><span>The Woodlands</span><span>Pasadena</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <p class="sec-label">Preguntas frecuentes</p>
+    <h2 class="sec-title">Preguntas frecuentes sobre pintura de casas en Houston.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta pintar una casa en Houston?</summary>
+        <div class="answer">Depende de los metros cuadrados, el estado de las superficies y cuánta preparación se necesita. Pintar cuartos por dentro y repintar toda la fachada tienen precios muy distintos. Damos cotizaciones gratis y detalladas después de ver el espacio — sin adivinar por teléfono y sin cargos sorpresa.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tiempo toma pintar una casa por dentro o por fuera?</summary>
+        <div class="answer">La mayoría de los cuartos toman uno o dos días. Repintar toda la fachada normalmente lleva de tres a cinco días según el tamaño de la casa y el clima. Te damos un tiempo realista junto con la cotización y te avisamos de inmediato si algo cambia.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Tengo que mover mis muebles antes de que pinten?</summary>
+        <div class="answer">No. Movemos los muebles al centro del cuarto, los cubrimos y protegemos tus pisos antes de sacar la pintura. Si tienes algo frágil o de valor que prefieras mover tú, solo avísanos con tiempo.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuál es la mejor época del año para pintar exteriores en Houston?</summary>
+        <div class="answer">El otoño y la primavera son ideales — las temperaturas moderadas y menos humedad ayudan a que la pintura cure bien. En verano también se puede si trabajamos evitando el calor y la lluvia de la tarde. Nunca pintamos sobre superficies húmedas, que es lo que causa que se despegue después.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué tipo de pintura usan?</summary>
+        <div class="answer">Pinturas de calidad para interior y exterior, adecuadas a la superficie y al clima de Houston. Si ya tienes una marca o un color escogido, lo usamos. Si no, te explicamos las opciones que mejor aguantan aquí.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Pintan gabinetes de cocina?</summary>
+        <div class="answer">Sí. La pintura de gabinetes es parte de nuestro trabajo de interiores — limpiamos, lijamos, imprimamos y damos el acabado para que quede liso y duradero, no pegajoso ni con marcas. Es uno de los cambios de mayor impacto en una cocina sin hacer una remodelación completa.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo pido una cotización?</summary>
+        <div class="answer">Escríbenos o llámanos con una descripción corta de tu proyecto — interior, exterior o los dos — y más o menos cuánto espacio abarca. Coordinamos una visita para verlo y te damos una cotización por escrito sin costo.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -280,7 +365,7 @@
 <section class="contact" id="contacto">
   <div class="wrap">
     <div class="contact-card">
-      <h2>¿Listo para una capa nueva?</h2>
+      <h2>Pide tu cotización gratis de pintura.</h2>
       <p>Cuéntanos sobre tu proyecto y te damos una cotización. Interior, exterior o los dos.</p>
       <div class="contact-actions">
         <a class="btn btn-ink" href="mailto:jax3485403@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&amp;body=Hola%20Prime%20Coat%2C%20quisiera%20una%20cotizaci%C3%B3n.%20Este%20es%20mi%20proyecto%3A">Escríbenos para cotizar</a>
@@ -298,6 +383,81 @@
     <div>© 2026 Prime Coat</div>
   </div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HousePainter",
+      "name": "Prime Coat",
+      "description": "Empresa de pintura de casas de interior y exterior en Houston, TX y alrededores.",
+      "email": "jax3485403@gmail.com",
+      "telephone": "+1-346-634-5497",
+      "areaServed": [
+        {"@type":"City","name":"Houston"},
+        {"@type":"City","name":"Katy"},
+        {"@type":"City","name":"Sugar Land"},
+        {"@type":"City","name":"Pearland"},
+        {"@type":"City","name":"Cypress"},
+        {"@type":"City","name":"The Woodlands"},
+        {"@type":"City","name":"Pasadena"}
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "makesOffer": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pintura de interiores"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pintura de exteriores"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pintura de gabinetes"}}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta pintar una casa en Houston?",
+          "acceptedAnswer": {"@type":"Answer","text":"Depende de los metros cuadrados, el estado de las superficies y cuánta preparación se necesita. Damos cotizaciones gratis y detalladas después de ver el espacio."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo toma pintar una casa por dentro o por fuera?",
+          "acceptedAnswer": {"@type":"Answer","text":"La mayoría de los cuartos toman uno o dos días. Repintar toda la fachada normalmente lleva de tres a cinco días según el tamaño de la casa y el clima."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que mover mis muebles antes de que pinten?",
+          "acceptedAnswer": {"@type":"Answer","text":"No. Movemos los muebles al centro del cuarto, los cubrimos y protegemos tus pisos antes de sacar la pintura."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la mejor época del año para pintar exteriores en Houston?",
+          "acceptedAnswer": {"@type":"Answer","text":"El otoño y la primavera son ideales — las temperaturas moderadas y menos humedad ayudan a que la pintura cure bien. En verano también se puede evitando el calor y la lluvia de la tarde."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipo de pintura usan?",
+          "acceptedAnswer": {"@type":"Answer","text":"Pinturas de calidad para interior y exterior, adecuadas a la superficie y al clima de Houston. Si ya tienes una marca o color escogido, lo usamos."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Pintan gabinetes de cocina?",
+          "acceptedAnswer": {"@type":"Answer","text":"Sí. Limpiamos, lijamos, imprimamos y damos el acabado para que quede liso y duradero."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo pido una cotización?",
+          "acceptedAnswer": {"@type":"Answer","text":"Escríbenos o llámanos con una descripción corta de tu proyecto y cuánto espacio abarca. Coordinamos una visita y te damos una cotización por escrito sin costo."}
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
