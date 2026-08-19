@@ -97,6 +97,53 @@
   .sec-title{font-size:clamp(30px,4.5vw,46px);font-weight:800;max-width:18ch}
   .sec-intro{font-size:18px;color:var(--ink-soft);max-width:56ch;margin-top:18px}
 
+  /* ---------- Starry night sky ---------- */
+  .starry{position:relative;isolation:isolate}
+  /* scroll-driven colour shift: deep navy -> night blue */
+  .starry .tint{position:absolute;inset:0;z-index:0;pointer-events:none;
+       background:linear-gradient(165deg,#122C56 0%,#0D1E3C 55%,#0A1526 100%);
+       opacity:var(--p,0)}
+  .stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .stars i{position:absolute;inset:0;display:block;background-repeat:repeat;
+       background-attachment:fixed;   /* parallax against the viewport */
+       will-change:background-position}
+  .stars .l1{
+    background-image:
+      radial-gradient(1.9px 1.9px at 38px 62px, rgba(255,255,255,1), transparent 58%),
+      radial-gradient(1.6px 1.6px at 128px 22px, rgba(210,231,255,.98), transparent 58%),
+      radial-gradient(2.2px 2.2px at 88px 148px, rgba(255,255,255,1), transparent 58%),
+      radial-gradient(1.4px 1.4px at 196px 104px, rgba(186,214,255,.95), transparent 58%),
+      radial-gradient(1.7px 1.7px at 18px 186px, rgba(255,255,255,.98), transparent 58%),
+      radial-gradient(1.5px 1.5px at 224px 178px, rgba(226,240,255,.92), transparent 58%),
+      radial-gradient(1.3px 1.3px at 152px 236px, rgba(255,255,255,.9), transparent 58%),
+      radial-gradient(1.8px 1.8px at 68px 12px, rgba(198,222,255,.95), transparent 58%);
+    background-size:250px 250px;
+    opacity:1;
+    animation:drift 150s linear infinite, twinkleA 5.5s ease-in-out infinite alternate}
+  .stars .l2{
+    background-image:
+      radial-gradient(1.4px 1.4px at 60px 40px, rgba(224,238,255,.92), transparent 58%),
+      radial-gradient(1.2px 1.2px at 150px 120px, rgba(255,255,255,.88), transparent 58%),
+      radial-gradient(1.6px 1.6px at 240px 70px, rgba(190,216,255,.9), transparent 58%),
+      radial-gradient(1.2px 1.2px at 30px 230px, rgba(255,255,255,.85), transparent 58%),
+      radial-gradient(1.3px 1.3px at 285px 285px, rgba(212,232,255,.85), transparent 58%),
+      radial-gradient(1.1px 1.1px at 105px 300px, rgba(255,255,255,.8), transparent 58%);
+    background-size:330px 330px;
+    opacity:.85;
+    animation:drift 240s linear infinite reverse, twinkleB 7.5s ease-in-out infinite alternate}
+  .stars .l3{
+    background-image:
+      radial-gradient(2.6px 2.6px at 110px 90px, rgba(216,162,74,.55), transparent 60%),
+      radial-gradient(2.2px 2.2px at 300px 210px, rgba(255,255,255,.5), transparent 60%),
+      radial-gradient(2.4px 2.4px at 40px 300px, rgba(146,190,255,.5), transparent 60%);
+    background-size:440px 440px;
+    opacity:.55;
+    animation:drift 340s linear infinite, twinkleA 9s ease-in-out infinite alternate}
+  @keyframes drift{from{background-position:0 0}to{background-position:250px -120px}}
+  @keyframes twinkleA{0%{opacity:.45}100%{opacity:.95}}
+  @keyframes twinkleB{0%{opacity:.75}100%{opacity:.35}}
+  .starry>.wrap{position:relative;z-index:2}
+
   /* ---------- Scroll reveal ---------- */
   [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
   [data-reveal].in{opacity:1;transform:none}
@@ -253,6 +300,8 @@
   @media (prefers-reduced-motion:reduce){
     .deck span{animation:none;transform:translateY(60%)}
     .cube{animation:none}
+    .stars i{animation:none;background-attachment:scroll}
+    .starry .tint{opacity:.35}
     [data-reveal]{opacity:1!important;transform:none!important}
     html{scroll-behavior:auto}
     *{transition:none!important;animation:none!important}
@@ -275,7 +324,9 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero starry">
+  <div class="tint" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
   <div class="deck" aria-hidden="true">
     <span></span><span></span><span></span><span></span><span></span>
   </div>
@@ -427,7 +478,9 @@
 </section>
 
 <!-- SERVICE AREA -->
-<section class="area">
+<section class="area starry">
+  <div class="tint" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
   <div class="wrap">
     <p class="sec-label">Service area</p>
     <h2 class="sec-title">House painters serving Houston &amp; nearby areas.</h2>
@@ -491,7 +544,9 @@
   </div>
 </section>
 
-<footer>
+<footer class="starry">
+  <div class="tint" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"><i class="l1"></i><i class="l2"></i></div>
   <div class="wrap">
     <div class="wordmark"><span class="dot"></span>Prime Coat</div>
     <div>Interior &amp; exterior house painting · Houston, TX</div>
@@ -513,6 +568,23 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* Night-sky colour shifts as the page is scrolled */
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var root = document.documentElement, ticking = false;
+    function update(){
+      var max = document.body.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, window.pageYOffset / max)) : 0;
+      root.style.setProperty('--p', p.toFixed(3));
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
   })();
 </script>
 
