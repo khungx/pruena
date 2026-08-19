@@ -94,6 +94,16 @@
   .step h3{font-size:19px;font-weight:700;margin-bottom:8px}
   .step p{font-size:15px;color:var(--ink-soft)}
 
+  .work{background:var(--white)}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+  .work-item{border-radius:var(--radius);overflow:hidden;background:var(--plaster)}
+  .work-item .img-wrap{overflow:hidden;aspect-ratio:4/3}
+  .work-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .work-item:hover img{transform:scale(1.045)}
+  .work-cap{padding:16px 4px 0}
+  .work-cap h3{font-size:15px;font-weight:700;letter-spacing:-0.01em}
+  .work-cap p{font-size:13px;color:var(--ink-soft);margin-top:2px}
+
   .area{background:var(--ink);color:var(--white)}
   .area .sec-label{color:var(--sw-ochre)}
   .area .sec-title{color:var(--white)}
@@ -120,8 +130,12 @@
   @media (max-width:720px){
     .svc-grid{grid-template-columns:1fr}
     .expect-grid{grid-template-columns:1fr}
+    .work-grid{grid-template-columns:1fr}
     section{padding:64px 0}
     .hero .wrap{padding-top:64px;padding-bottom:72px}
+  }
+  @media (max-width:960px) and (min-width:721px){
+    .work-grid{grid-template-columns:repeat(2,1fr)}
   }
 
   a:focus-visible,.btn:focus-visible,.nav-cta:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:6px}
@@ -210,6 +224,41 @@
         <span class="n">Limpieza</span>
         <h3>Lo dejamos impecable</h3>
         <p>Cinta retirada, pisos despejados, basura recogida. Entras a un cuarto terminado, no a un desorden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUESTRO TRABAJO -->
+<section class="work" id="trabajo">
+  <div class="wrap">
+    <p class="sec-label">Nuestro trabajo</p>
+    <h2 class="sec-title">Algunos proyectos recientes.</h2>
+    <p class="sec-intro">Una muestra de trabajos de interior y exterior en el área de Houston — casas reales, acabados reales.</p>
+    <div class="work-grid">
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-08-exterior-finished.jpg" alt="Repintado completo de exterior, Houston, TX" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Repintado completo de exterior</h3><p>Houston, TX</p></div>
+      </div>
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-04-curved-staircase.jpg" alt="Restauración de escalera y molduras" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Escalera y molduras</h3><p>Trabajo de detalle interior</p></div>
+      </div>
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-09-exterior-trim.jpg" alt="Pintura de molduras y aleros exteriores" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Molduras y aleros</h3><p>Houston, TX</p></div>
+      </div>
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-03-wainscoting.jpg" alt="Pintura de paneles y molduras de pared" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Paneles de pared</h3><p>Trabajo de detalle interior</p></div>
+      </div>
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-05-bedroom-trim.jpg" alt="Paredes, puertas y molduras recién pintadas" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Paredes, puertas y molduras</h3><p>Repintado de recámara</p></div>
+      </div>
+      <div class="work-item">
+        <div class="img-wrap"><img src="projects/project-07-exterior-backyard.jpg" alt="Preparación y proceso de pintura exterior en patio trasero" loading="lazy" width="1200" height="900"></div>
+        <div class="work-cap"><h3>Preparación y proceso</h3><p>Houston, TX</p></div>
       </div>
     </div>
   </div>
