@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>House Painting in Houston, TX | Interior &amp; Exterior Painters — Prime Coat</title>
-<meta name="description" content="Prime Coat is a Houston house painting company for interior and exterior work. Careful prep, clean lines, tidy finish. Free quotes across Houston, Katy, Sugar Land &amp; Cypress.">
+<meta name="description" content="Prime Coat is an owner-run Houston house painting company — interior, exterior, drywall, baseboards and ceiling texture. 8 years experience. Free on-site estimates across Houston.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -97,6 +97,28 @@
   .sec-title{font-size:clamp(30px,4.5vw,46px);font-weight:800;max-width:18ch}
   .sec-intro{font-size:18px;color:var(--ink-soft);max-width:56ch;margin-top:18px}
 
+  /* ---------- Hero trust bar ---------- */
+  .trust{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:42px;padding-top:30px;border-top:1px solid rgba(255,255,255,.16)}
+  .trust div{display:flex;flex-direction:column;gap:3px}
+  .trust b{font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:24px;font-weight:800;color:var(--sw-ochre);letter-spacing:-0.02em;line-height:1}
+  .trust span{font-size:13.5px;color:#B7C4D1}
+
+  /* ---------- About / team ---------- */
+  .about{background:var(--plaster);background-image:var(--grad-plaster)}
+  .about-lead{font-size:clamp(19px,2.3vw,23px);color:var(--ink);max-width:60ch;margin-top:20px;font-weight:500}
+  .about-lead strong{color:var(--ochre-deep);font-weight:700}
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;perspective:1200px}
+  .member{background:var(--white);border:1px solid var(--plaster-2);border-radius:var(--radius);padding:30px 26px;text-align:center;
+       transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,border-color .35s ease}
+  .member:hover{transform:translateY(-6px) rotateX(3deg);box-shadow:0 22px 50px -22px rgba(22,40,59,.36);border-color:rgba(200,138,58,.4)}
+  .member .initial{width:60px;height:60px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;
+       font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;font-size:24px;color:var(--white);letter-spacing:-0.02em}
+  .member:nth-child(1) .initial{background:linear-gradient(140deg,#3A8480,#256561)}
+  .member:nth-child(2) .initial{background:linear-gradient(140deg,#C06B50,#9C4F39)}
+  .member:nth-child(3) .initial{background:linear-gradient(140deg,#6B85A8,#4A6684)}
+  .member h3{font-size:20px;font-weight:700;margin-bottom:4px}
+  .member p{font-size:14.5px;color:var(--ink-soft)}
+
   /* ---------- Starry night sky ---------- */
   .starry{position:relative;isolation:isolate}
   /* scroll-driven colour shift: deep navy -> night blue */
@@ -150,7 +172,7 @@
 
   /* ---------- Services ---------- */
   .services{background:var(--white);background-image:var(--grad-light)}
-  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;perspective:1400px}
+  .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:48px;perspective:1400px}
   .svc{position:relative;background:var(--plaster);border-radius:var(--radius);padding:38px 34px;border:1px solid var(--plaster-2);
        transform-style:preserve-3d;
        transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s ease,border-color .35s ease;
@@ -184,6 +206,10 @@
   .svc:nth-child(2) .fr{background:#C06B50}.svc:nth-child(2) .bk{background:#B05C43}
   .svc:nth-child(2) .rt{background:#9C4F39}.svc:nth-child(2) .lf{background:#9C4F39}
   .svc:nth-child(2) .tp{background:#D07E62}.svc:nth-child(2) .bt{background:#82412F}
+  /* repairs = sage deck */
+  .svc:nth-child(3) .fr{background:#8CA37F}.svc:nth-child(3) .bk{background:#7C9070}
+  .svc:nth-child(3) .rt{background:#6C8062}.svc:nth-child(3) .lf{background:#6C8062}
+  .svc:nth-child(3) .tp{background:#9DB490}.svc:nth-child(3) .bt{background:#5A6B52}
 
   .svc h3{font-size:24px;font-weight:700;margin-bottom:12px}
   .svc p{color:var(--ink-soft);font-size:16px}
@@ -287,6 +313,9 @@
     .expect-grid{grid-template-columns:1fr}
     .work-grid{grid-template-columns:1fr}
     .review-grid{grid-template-columns:1fr}
+    .team{grid-template-columns:1fr}
+    .trust{gap:18px 26px}
+    .trust b{font-size:21px}
     section{padding:64px 0}
     .hero .wrap{padding-top:64px;padding-bottom:72px}
   }
@@ -318,7 +347,7 @@
         <a href="index.html" class="active">EN</a>
         <a href="es.html">ES</a>
       </div>
-      <a class="nav-cta" href="#contact">Get a quote</a>
+      <a class="nav-cta" href="#contact">Free estimate</a>
     </div>
   </div>
 </header>
@@ -333,10 +362,16 @@
   <div class="wrap">
     <p class="eyebrow">Interior &amp; Exterior · Houston, TX</p>
     <h1>House painting in Houston — a fresh coat, done <em>right</em> the first time.</h1>
-    <p class="lede">Prime Coat is a Houston house painting crew for homeowners who want clean lines, careful prep, and a tidy job from start to finish — inside and out.</p>
+    <p class="lede">Three partners, eight years, and one standard: clean lines, careful prep, and a tidy job from start to finish. When you hire Prime Coat, the owners are the ones painting your house.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#contact">Request a quote</a>
-      <a class="btn btn-ghost" href="#services">See what we do</a>
+      <a class="btn btn-primary" href="#contact">Get a free estimate</a>
+      <a class="btn btn-ghost" href="#work">See our work</a>
+    </div>
+    <div class="trust">
+      <div><b>8 years</b><span>Painting homes in Houston</span></div>
+      <div><b>Owner-run</b><span>No subcontractors, ever</span></div>
+      <div><b>Free</b><span>On-site estimates</span></div>
+      <div><b>EN / ES</b><span>We speak your language</span></div>
     </div>
   </div>
 </section>
@@ -386,6 +421,52 @@
         </ul>
         <a class="svc-link" href="#contact">Get an exterior quote <span aria-hidden="true">→</span></a>
       </article>
+      <article class="svc" data-reveal style="--d:.34s">
+        <div class="cube-stage" aria-hidden="true">
+          <div class="cube">
+            <span class="fr"></span><span class="bk"></span><span class="rt"></span>
+            <span class="lf"></span><span class="tp"></span><span class="bt"></span>
+          </div>
+        </div>
+        <h3>Drywall, baseboards &amp; ceiling texture</h3>
+        <p>The repair work that has to happen before paint looks right — plus the finish carpentry and ceiling texturing most painting crews will tell you to hire out.</p>
+        <ul class="svc-check">
+          <li>Drywall repair, patching and finishing</li>
+          <li>Baseboard and trim install</li>
+          <li>Ceiling texture matched to the existing finish</li>
+        </ul>
+        <ul class="svc-tags">
+          <li>Drywall repair</li><li>Baseboards</li><li>Ceiling texture</li><li>Trim install</li>
+        </ul>
+        <a class="svc-link" href="#contact">Ask about repairs <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / TEAM -->
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="sec-label" data-reveal>Who we are</p>
+    <h2 class="sec-title" data-reveal style="--d:.06s">Meet the painters behind Prime Coat.</h2>
+    <p class="about-lead" data-reveal style="--d:.12s">Prime Coat is <strong>three partners — Elias, Denzel and Wilson</strong> — with eight years of painting homes across Houston. We're not a call center that farms your job out to whoever's free that week. The people who quote your project are the same people who show up, prep it, paint it, and clean up after.</p>
+    <p class="sec-intro" data-reveal style="--d:.16s">That's the difference you feel on a job site: one crew, one standard, and someone who answers the phone when you call.</p>
+    <div class="team">
+      <div class="member" data-reveal style="--d:.20s">
+        <div class="initial" aria-hidden="true">E</div>
+        <h3>Elias</h3>
+        <p>Partner &amp; painter</p>
+      </div>
+      <div class="member" data-reveal style="--d:.27s">
+        <div class="initial" aria-hidden="true">D</div>
+        <h3>Denzel</h3>
+        <p>Partner &amp; painter</p>
+      </div>
+      <div class="member" data-reveal style="--d:.34s">
+        <div class="initial" aria-hidden="true">W</div>
+        <h3>Wilson</h3>
+        <p>Partner &amp; painter</p>
+      </div>
     </div>
   </div>
 </section>
@@ -534,12 +615,12 @@
   <div class="wrap">
     <div class="contact-card">
       <h2>Get a free house painting quote.</h2>
-      <p>Tell us about your project and we'll get you a quote. Interior, exterior, or both.</p>
+      <p>Tell us about your project and we'll come take a look. Every house is different, so we price after seeing the space in person — no guessed numbers over the phone, no surprise charges later.</p>
       <div class="contact-actions">
-        <a class="btn btn-ink" href="mailto:jax3485403@gmail.com?subject=Painting%20quote%20request&amp;body=Hi%20Prime%20Coat%2C%20I'd%20like%20a%20quote.%20Here's%20my%20project%3A">Email us for a quote</a>
-        <a class="btn btn-primary" href="tel:+13466345497">Call: (346) 634-5497</a>
+        <a class="btn btn-ink" href="mailto:jr3485403@gmail.com?subject=Painting%20quote%20request&amp;body=Hi%20Prime%20Coat%2C%20I'd%20like%20a%20quote.%20Here's%20my%20project%3A">Email us for a quote</a>
+        <a class="btn btn-primary" href="tel:+18328068583">Call: (832) 806-8583</a>
       </div>
-      <p class="email-plain">Or reach us directly at <a href="mailto:jax3485403@gmail.com">jax3485403@gmail.com</a></p>
+      <p class="email-plain">Or reach us directly at <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
     </div>
   </div>
 </section>
@@ -549,7 +630,7 @@
   <div class="stars" aria-hidden="true"><i class="l1"></i><i class="l2"></i></div>
   <div class="wrap">
     <div class="wordmark"><span class="dot"></span>Prime Coat</div>
-    <div>Interior &amp; exterior house painting · Houston, TX</div>
+    <div>Interior &amp; exterior painting · Drywall · Ceiling texture · Houston, TX</div>
     <div>© 2026 Prime Coat</div>
   </div>
 </footer>
@@ -596,8 +677,8 @@
       "@type": "HousePainter",
       "name": "Prime Coat",
       "description": "Interior and exterior house painting company serving Houston, TX and nearby areas.",
-      "email": "jax3485403@gmail.com",
-      "telephone": "+1-346-634-5497",
+      "email": "jr3485403@gmail.com",
+      "telephone": "+1-832-806-8583",
       "areaServed": [
         {"@type":"City","name":"Houston"},
         {"@type":"City","name":"Katy"},
@@ -613,10 +694,20 @@
         "addressRegion": "TX",
         "addressCountry": "US"
       },
+      "foundingDate": "2018",
+      "founder": [
+        {"@type":"Person","name":"Elias"},
+        {"@type":"Person","name":"Denzel"},
+        {"@type":"Person","name":"Wilson"}
+      ],
+      "knowsLanguage": ["en","es"],
       "makesOffer": [
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Interior house painting"}},
         {"@type":"Offer","itemOffered":{"@type":"Service","name":"Exterior house painting"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cabinet painting"}}
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cabinet painting"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Drywall repair"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Baseboard and trim installation"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ceiling texturing"}}
       ]
     },
     {
