@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prime-coat-painting.netlify.app/sitemap.xml
