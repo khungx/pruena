@@ -162,31 +162,22 @@
 
   /* ---------- Work: deliberately uneven grid ---------- */
   .work-grid{display:grid;gap:clamp(30px,3.4vw,52px) clamp(20px,2.4vw,40px)}
-  @media(min-width:820px){
-    .work-grid{grid-template-columns:repeat(6,1fr)}
-    .w-wide{grid-column:span 4}
-    .w-half{grid-column:span 3}
-    .w-third{grid-column:span 2}
-  }
+  @media(min-width:760px){.work-grid{grid-template-columns:1fr 1fr}}
   .shot figure{overflow:hidden;background:var(--putty-3)}
   .shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.75,.25,1)}
   .shot:hover img{transform:scale(1.035)}
-  .w-wide img{aspect-ratio:16/10}
-  .w-half img{aspect-ratio:4/3}
-  .w-third img{aspect-ratio:3/4}
+  .work-grid .shot img{aspect-ratio:3/2}
+  .cab-strip .shot img{aspect-ratio:4/3}
   @media(max-width:819px){.shot img{aspect-ratio:4/3}}
   .cap{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-top:14px;padding-top:12px;border-top:2px solid var(--ink)}
   .cap h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em}
   .cap p{font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:.04em}
 
-  /* ---------- Cabinets aside ---------- */
-  .aside-grid{display:grid;gap:38px;align-items:center}
-  @media(min-width:880px){.aside-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(44px,5vw,80px)}}
-  .aside-grid img{width:100%;aspect-ratio:4/3;object-fit:cover}
-  .aside-grid .lbl{display:block;margin-bottom:18px}
-  .aside-grid h2{max-width:13ch}
-  .aside-grid .lead{margin-top:24px}
-  .aside-grid .go{display:inline-block;margin-top:28px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.11em}
+  /* ---------- Cabinets: intro + 3-step strip ---------- */
+  .cabinets .head{margin-bottom:clamp(34px,4vw,54px)}
+  .cabinets .go{display:inline-block;margin-top:26px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.11em}
+  .cab-strip{display:grid;gap:clamp(22px,2.6vw,36px)}
+  @media(min-width:760px){.cab-strip{grid-template-columns:repeat(3,1fr)}}
 
   /* ---------- About / team ---------- */
   .about-grid{display:grid;gap:36px}
@@ -311,7 +302,7 @@
       </div>
     </div>
     <div class="hero-shot" data-r style="--d:.24s">
-      <img src="projects/project-08-exterior-finished.jpg" alt="Casa de dos pisos en Houston después de un repintado completo de exterior por Prime Coat" width="1200" height="900" fetchpriority="high">
+      <img src="projects/work-modern-front.jpg" alt="Casa moderna de dos pisos en Houston después de un repintado completo de exterior por Prime Coat" width="1200" height="900" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -378,49 +369,44 @@
     <div class="head">
       <span class="lbl" data-r>Trabajo seleccionado</span>
       <h2 class="d d-l" data-r style="--d:.05s">Casas que hemos pintado.</h2>
-      <p class="lead" data-r style="--d:.1s">Trabajos de interior y exterior en el área de Houston — casas reales, acabados reales, sin fotos de catálogo.</p>
+      <p class="lead" data-r style="--d:.1s">Un par de exteriores recientes en el área de Houston — casas reales, acabados reales, sin fotos de catálogo.</p>
     </div>
     <div class="work-grid">
-      <div class="shot w-wide" data-r style="--d:.04s">
-        <figure><img src="projects/house-01-exterior-two-storey.jpg" alt="Casa de dos pisos en Houston después de un repintado completo" loading="lazy" width="1200" height="900"></figure>
-        <div class="cap"><h3>Repintado de exterior</h3><p>Houston, TX</p></div>
-      </div>
-      <div class="shot w-third" data-r style="--d:.08s">
-        <figure><img src="projects/house-02-interior-doors-trim.jpg" alt="Puerta, molduras y mueble interior pintados en azul" loading="lazy" width="1200" height="900"></figure>
-        <div class="cap"><h3>Puertas y molduras</h3><p>Trabajo de color</p></div>
-      </div>
-      <div class="shot w-half" data-r style="--d:.12s">
-        <figure><img src="projects/house-03-exterior-in-progress.jpg" alt="Pintor trabajando en los aleros de una casa de ladrillo en Houston" loading="lazy" width="1200" height="900"></figure>
+      <div class="shot" data-r style="--d:.04s">
+        <figure><img src="projects/work-painter-roof.jpg" alt="Pintor trabajando en el exterior de una casa moderna" loading="lazy" width="1600" height="1067"></figure>
         <div class="cap"><h3>Exterior en proceso</h3><p>Houston, TX</p></div>
       </div>
-      <div class="shot w-half" data-r style="--d:.16s">
-        <figure><img src="projects/house-04-interior-walls.jpg" alt="Paredes, molduras y puertas interiores recién pintadas" loading="lazy" width="1200" height="900"></figure>
-        <div class="cap"><h3>Paredes y molduras</h3><p>Sala</p></div>
-      </div>
-      <div class="shot w-third" data-r style="--d:.2s">
-        <figure><img src="projects/house-05-exterior-porch.jpg" alt="Porche cubierto con ladrillo y techo pintados" loading="lazy" width="1200" height="900"></figure>
-        <div class="cap"><h3>Porche y ladrillo</h3><p>Houston, TX</p></div>
-      </div>
-      <div class="shot w-wide" data-r style="--d:.24s">
-        <figure><img src="projects/house-06-exterior-brick.jpg" alt="Exterior de ladrillo pintado de blanco con molduras nuevas" loading="lazy" width="1200" height="900"></figure>
-        <div class="cap"><h3>Ladrillo pintado</h3><p>Houston, TX</p></div>
+      <div class="shot" data-r style="--d:.10s">
+        <figure><img src="projects/work-modern-front.jpg" alt="Casa moderna, repintado completo de exterior" loading="lazy" width="1600" height="1067"></figure>
+        <div class="cap"><h3>Repintado completo de exterior</h3><p>Houston, TX</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CABINETS -->
-<section>
-  <div class="wrap aside-grid">
-    <div>
-      <span class="lbl" data-r>También conviene saber</span>
-      <h2 class="d d-m" data-r style="--d:.05s">También pintamos gabinetes de cocina.</h2>
-      <p class="lead" data-r style="--d:.1s">Pintar los gabinetes es la forma más económica de que una cocina se vea nueva sin remodelarla. Quitamos las puertas, las limpiamos y lijamos, imprimamos y damos el acabado para que quede liso y resistente — no pegajoso ni con marcas.</p>
+<!-- APARTADO GABINETES -->
+<section class="cabinets">
+  <div class="wrap">
+    <div class="head">
+      <span class="lbl" data-r>Tambi&eacute;n conviene saber</span>
+      <h2 class="d d-m" data-r style="--d:.05s">Tambi&eacute;n pintamos gabinetes de cocina.</h2>
+      <p class="lead" data-r style="--d:.1s">Pintar los gabinetes es la forma m&aacute;s econ&oacute;mica de que una cocina se vea nueva sin remodelarla. Quitamos las puertas, enmascaramos todo, imprimamos y damos el acabado &mdash; para que quede liso y resistente, no pegajoso ni con marcas.</p>
       <a class="go wipe" href="#contacto" data-r style="--d:.14s">Preguntar por gabinetes</a>
     </div>
-    <figure data-r style="--d:.08s">
-      <img src="projects/cabinets-kitchen.jpg" alt="Gabinetes de cocina repintados en blanco, Houston, TX" loading="lazy" width="1200" height="900">
-    </figure>
+    <div class="cab-strip">
+      <div class="shot" data-r style="--d:.06s">
+        <figure><img src="projects/cabinets-1-prep.jpg" alt="Enmascarado — kitchen cabinet painting, Houston TX" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Enmascarado</h3><p>Preparaci&oacute;n</p></div>
+      </div>
+      <div class="shot" data-r style="--d:.12s">
+        <figure><img src="projects/cabinets-2-doors.jpg" alt="Puertas pintadas — kitchen cabinet painting, Houston TX" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Puertas pintadas</h3><p>En proceso</p></div>
+      </div>
+      <div class="shot" data-r style="--d:.18s">
+        <figure><img src="projects/cabinets-3-done.jpg" alt="Cocina terminada — kitchen cabinet painting, Houston TX" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Cocina terminada</h3><p>Terminado</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
