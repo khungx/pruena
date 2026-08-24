@@ -9,234 +9,270 @@
 <link rel="alternate" hreflang="es" href="es.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
 <style>
+  /* ==========================================================
+     COVERAGE — Prime Coat
+     Ground: primer putty. Ink: near-black. One cobalt signal.
+     Boldness is spent on typographic scale, nowhere else.
+     Every edge is square: a painter sells precise lines.
+     ========================================================== */
   :root{
-    --paper:#FBFAF8;
-    --paper-2:#F3F0EA;
-    --ink:#16130F;
-    --ink-2:#6E6861;
-    --ink-3:#9A938A;
-    --line:#E5E0D8;
-    --line-2:#D4CDC2;
-    --accent:#C2451F;
-    --accent-deep:#A33716;
-    --on-ink:#F6F3EE;
-    --on-ink-2:#A8A199;
-    --line-ink:rgba(246,243,238,.17);
-    --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
-    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-    --maxw:1280px;
-    --gut:clamp(20px,4.4vw,60px);
-    --sec-y:clamp(72px,10vw,140px);
+    --putty:#EFEDE8;
+    --putty-2:#E4E1D9;
+    --putty-3:#D7D3C9;
+    --ink:#14161A;
+    --ink-2:#33383E;
+    --muted:#6E747A;
+    --chalk:#F4F2ED;
+    --chalk-2:#A8AEB2;
+    --cobalt:#1F3FD1;
+    --cobalt-lift:#3C58E6;
+    --rule:#C9C4B8;
+    --rule-dark:rgba(244,242,237,.18);
+
+    --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --maxw:1440px;
+    --gut:clamp(20px,5vw,84px);
+    --sec:clamp(84px,11vw,180px);
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     font-family:var(--sans);
-    background:var(--paper);
+    font-size:17px;
+    line-height:1.6;
+    background:var(--putty);
     color:var(--ink);
-    font-size:16.5px;
-    line-height:1.65;
     -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
   }
   img{display:block;max-width:100%;height:auto}
   a{color:inherit}
+  ::selection{background:var(--cobalt);color:#fff}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
-  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--on-ink);padding:12px 20px;z-index:100}
-  .skip:focus{left:8px;top:8px}
+  .skip{position:absolute;left:-9999px;background:var(--ink);color:var(--chalk);padding:14px 22px;z-index:200}
+  .skip:focus{left:10px;top:10px}
 
-  /* ---------- Type primitives ---------- */
-  .label{font-size:11.5px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-3)}
-  .display{font-family:var(--serif);font-weight:400;line-height:.99;letter-spacing:-.018em}
-  .display em{font-style:italic;color:var(--accent)}
+  /* ---------- Type system ----------
+     One superfamily worked at its extremes: expanded + heavy for
+     display, normal width for reading. No second typeface needed. */
+  .d{
+    font-weight:800;
+    font-stretch:118%;
+    text-transform:uppercase;
+    line-height:.88;
+    letter-spacing:-.022em;
+    text-wrap:balance;
+  }
+  .d-xl{font-size:clamp(44px,10.4vw,168px)}
+  .d-l {font-size:clamp(34px,6.4vw,96px)}
+  .d-m {font-size:clamp(27px,3.9vw,56px)}
+  .lbl{
+    font-size:11px;font-weight:700;font-stretch:112%;
+    text-transform:uppercase;letter-spacing:.2em;color:var(--muted);
+  }
+  .lead{font-size:clamp(17px,1.35vw,20px);color:var(--ink-2);max-width:46ch}
+
+  /* underline that wipes in from the left, like a brush pass */
+  .wipe{position:relative;text-decoration:none;display:inline-block}
+  .wipe::after{
+    content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;
+    background:var(--cobalt);transform:scaleX(0);transform-origin:left;
+    transition:transform .38s cubic-bezier(.2,.75,.25,1);
+  }
+  .wipe:hover::after,.wipe:focus-visible::after{transform:scaleX(1)}
 
   /* ---------- Header ---------- */
-  header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-  .brand{font-family:var(--serif);font-size:25px;letter-spacing:-.015em;text-decoration:none;display:flex;align-items:center;gap:9px;white-space:nowrap}
-  .brand i{width:8px;height:8px;background:var(--accent);border-radius:50%;display:block;flex:none}
-  .nav-links{display:flex;gap:30px;font-size:14.5px}
-  .nav-links a{text-decoration:none;color:var(--ink-2);transition:color .2s}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-end{display:flex;align-items:center;gap:20px}
-  .lang{display:flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:.06em;color:var(--ink-3)}
-  .lang a{text-decoration:none;transition:color .2s}
-  .lang a:hover{color:var(--ink)}
-  .lang a.on{color:var(--ink);font-weight:500}
-  .nav-tel{font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .2s}
-  .nav-tel:hover{border-color:var(--accent)}
+  header{position:sticky;top:0;z-index:60;background:var(--putty);border-bottom:2px solid var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:22px;height:78px}
+  .mark{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:800;font-stretch:118%;
+        text-transform:uppercase;letter-spacing:-.01em;font-size:19px;white-space:nowrap}
+  .mark i{width:13px;height:13px;background:var(--cobalt);display:block;flex:none}
+  .nav-links{display:flex;gap:34px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.11em}
+  .nav-end{display:flex;align-items:center;gap:22px}
+  .lang{display:flex;gap:6px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+  .lang a{text-decoration:none}
+  .lang a.on{color:var(--cobalt)}
+  .tel{font-size:14px;font-weight:700;font-stretch:110%;text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
 
-  /* ---------- Buttons ---------- */
-  .btn{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;line-height:1;
-       padding:16px 26px;border-radius:2px;text-decoration:none;border:1px solid transparent;
-       transition:background .22s ease,color .22s ease,border-color .22s ease}
-  .btn-solid{background:var(--accent);color:#fff}
-  .btn-solid:hover{background:var(--accent-deep)}
-  .btn-line{border-color:var(--line-2);color:var(--ink)}
-  .btn-line:hover{border-color:var(--ink)}
-  .btn-paper{background:var(--on-ink);color:var(--ink)}
-  .btn-paper:hover{background:#fff}
-  .btn-ghost-ink{border-color:var(--line-ink);color:var(--on-ink)}
-  .btn-ghost-ink:hover{border-color:var(--on-ink)}
-  .alink{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;text-decoration:none;
-         padding-bottom:3px;border-bottom:1px solid var(--line-2);transition:gap .22s ease,border-color .22s ease,color .22s ease}
-  .alink:hover{gap:14px;border-color:var(--accent);color:var(--accent)}
+  /* ---------- Buttons: square edges, no radius ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.11em;
+    padding:19px 30px;text-decoration:none;border:2px solid var(--ink);border-radius:0;
+    transition:background .2s ease,color .2s ease,border-color .2s ease;
+  }
+  .btn-fill{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+  .btn-fill:hover{background:var(--cobalt-lift);border-color:var(--cobalt-lift)}
+  .btn-out:hover{background:var(--ink);color:var(--chalk)}
+  .btn-chalk{background:var(--chalk);border-color:var(--chalk);color:var(--ink)}
+  .btn-chalk:hover{background:#fff;border-color:#fff}
+  .btn-onink{border-color:var(--rule-dark);color:var(--chalk)}
+  .btn-onink:hover{border-color:var(--chalk)}
 
   /* ---------- Hero ---------- */
-  .hero{padding-top:clamp(56px,9vw,104px);padding-bottom:clamp(40px,6vw,64px)}
-  .hero h1{font-size:clamp(43px,8.2vw,104px);max-width:15ch;margin-top:26px}
-  .hero-body{display:grid;gap:36px;margin-top:clamp(30px,4vw,48px);align-items:end}
-  @media(min-width:900px){.hero-body{grid-template-columns:minmax(0,1fr) minmax(0,26rem);gap:56px}}
-  .hero-lede{font-size:clamp(17px,1.5vw,19.5px);color:var(--ink-2);max-width:46ch}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .hero{padding-top:clamp(48px,7vw,96px)}
+  .hero .lbl{display:block;margin-bottom:clamp(20px,2.4vw,32px)}
+  .hero h1{max-width:11ch}
+  .hero-foot{display:grid;gap:32px;margin-top:clamp(34px,4.4vw,60px);align-items:end}
+  @media(min-width:940px){.hero-foot{grid-template-columns:minmax(0,1fr) auto;gap:64px}}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-shot{margin-top:clamp(44px,5.6vw,84px)}
+  .hero-shot img{width:100%;aspect-ratio:2.5/1;object-fit:cover}
+  @media(max-width:760px){.hero-shot img{aspect-ratio:4/3}}
 
-  .hero-figure{margin-top:clamp(44px,6vw,72px)}
-  .hero-figure img{width:100%;aspect-ratio:21/9;object-fit:cover;border-radius:3px}
-  @media(max-width:700px){.hero-figure img{aspect-ratio:4/3}}
-
-  /* ---------- Trust strip ---------- */
-  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .trust-in{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
-  @media(min-width:760px){.trust-in{grid-template-columns:repeat(5,1fr)}}
-  .trust-in div{padding:30px 26px 30px 0;border-right:1px solid var(--line)}
-  .trust-in div:last-child{border-right:0}
-  @media(max-width:759px){
-    .trust-in div{border-right:0;border-bottom:1px solid var(--line);padding:22px 0}
-    .trust-in div:nth-child(odd){border-right:1px solid var(--line);padding-right:22px}
-    .trust-in div:nth-child(even){padding-left:22px}
-    .trust-in div:last-child{border-bottom:0;grid-column:1/-1;border-right:0;padding-left:0}
+  /* ---------- Stats: inverted band ---------- */
+  .stats{background:var(--ink);color:var(--chalk)}
+  .stats-in{display:grid;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:900px){.stats-in{grid-template-columns:repeat(4,1fr)}}
+  .stat{padding:clamp(30px,3.4vw,46px) 26px clamp(30px,3.4vw,46px) 0;border-right:1px solid var(--rule-dark)}
+  .stat:last-child{border-right:0}
+  @media(max-width:899px){
+    .stat{border-bottom:1px solid var(--rule-dark);padding-right:20px}
+    .stat:nth-child(even){padding-left:22px;border-right:0}
+    .stat:nth-child(odd){border-right:1px solid var(--rule-dark)}
+    .stat:nth-last-child(-n+2){border-bottom:0}
   }
-  .trust b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,34px);line-height:1;letter-spacing:-.015em}
-  .trust span{display:block;margin-top:8px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+  .stat b{display:block;font-weight:800;font-stretch:118%;text-transform:uppercase;
+          font-size:clamp(24px,2.5vw,36px);line-height:.94;letter-spacing:-.02em}
+  .stat span{display:block;margin-top:11px;font-size:13px;color:var(--chalk-2);line-height:1.45}
 
-  /* ---------- Section scaffolding ---------- */
-  section{padding-top:var(--sec-y);padding-bottom:var(--sec-y)}
-  .band{background:var(--paper-2)}
-  .sec-head{display:grid;gap:16px;margin-bottom:clamp(44px,6vw,76px)}
-  @media(min-width:900px){.sec-head{grid-template-columns:112px minmax(0,1fr);gap:0 52px;align-items:start}}
-  .sec-num{font-size:11.5px;font-weight:500;letter-spacing:.19em;color:var(--accent);padding-top:14px}
-  .sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(31px,4.6vw,58px);line-height:1.0;letter-spacing:-.018em;max-width:19ch}
-  .sec-lede{margin-top:22px;max-width:58ch;color:var(--ink-2);font-size:17px}
+  /* ---------- Section frame ---------- */
+  section{padding-top:var(--sec);padding-bottom:var(--sec)}
+  .panel{background:var(--putty-2)}
+  .head{margin-bottom:clamp(46px,5.6vw,86px)}
+  .head .lbl{display:block;margin-bottom:20px}
+  .head h2{max-width:15ch}
+  .head .lead{margin-top:26px}
 
   /* ---------- Services ---------- */
   .svc-grid{display:grid;gap:0}
-  @media(min-width:880px){.svc-grid{grid-template-columns:repeat(3,1fr);gap:0 44px}}
-  .svc{border-top:1px solid var(--line-2);padding-top:26px;padding-bottom:38px}
-  @media(min-width:880px){.svc{padding-bottom:0}}
-  .svc h3{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
-  .svc>p{margin-top:14px;color:var(--ink-2);font-size:15.5px}
-  .svc ul{list-style:none;margin-top:22px}
-  .svc li{position:relative;padding-left:20px;font-size:15px;color:var(--ink);margin-bottom:9px;line-height:1.5}
-  .svc li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;background:var(--accent)}
-  .svc .kw{margin-top:20px;font-size:13.5px;color:var(--ink-3);line-height:1.55}
-  .svc .alink{margin-top:24px}
+  @media(min-width:900px){.svc-grid{grid-template-columns:repeat(3,1fr);gap:0 48px}}
+  .svc{border-top:2px solid var(--ink);padding-top:26px;padding-bottom:44px}
+  @media(min-width:900px){.svc{padding-bottom:0}}
+  .svc h3{font-weight:700;font-stretch:106%;font-size:20px;line-height:1.18;letter-spacing:-.012em;max-width:15ch}
+  .svc>p{margin-top:16px;color:var(--ink-2);font-size:15.5px}
+  .svc ul{list-style:none;margin-top:26px;display:grid;gap:11px}
+  .svc li{position:relative;padding-left:22px;font-size:15px;line-height:1.5}
+  .svc li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:2px;background:var(--cobalt)}
+  .svc .kw{margin-top:24px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+  .svc .go{display:inline-block;margin-top:26px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.11em}
+
+  /* ---------- Work: deliberately uneven grid ---------- */
+  .work-grid{display:grid;gap:clamp(30px,3.4vw,52px) clamp(20px,2.4vw,40px)}
+  @media(min-width:820px){
+    .work-grid{grid-template-columns:repeat(6,1fr)}
+    .w-wide{grid-column:span 4}
+    .w-half{grid-column:span 3}
+    .w-third{grid-column:span 2}
+  }
+  .shot figure{overflow:hidden;background:var(--putty-3)}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.75,.25,1)}
+  .shot:hover img{transform:scale(1.035)}
+  .w-wide img{aspect-ratio:16/10}
+  .w-half img{aspect-ratio:4/3}
+  .w-third img{aspect-ratio:3/4}
+  @media(max-width:819px){.shot img{aspect-ratio:4/3}}
+  .cap{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-top:14px;padding-top:12px;border-top:2px solid var(--ink)}
+  .cap h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em}
+  .cap p{font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:.04em}
 
   /* ---------- Cabinets aside ---------- */
-  .aside-band{background:var(--paper);border-top:1px solid var(--line)}
-  .note-grid{display:grid;gap:34px;align-items:center}
-  @media(min-width:820px){.note-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}}
-  .note-grid h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.02;letter-spacing:-.018em;max-width:16ch;margin-top:14px}
-  .note-copy{margin-top:20px;color:var(--ink-2);font-size:16.5px;max-width:52ch}
-  .note-grid .alink{margin-top:26px}
-  .note-grid img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
-
-  /* ---------- Work ---------- */
-  .work-grid{display:grid;gap:clamp(34px,4vw,56px) clamp(20px,3vw,40px)}
-  @media(min-width:800px){.work-grid{grid-template-columns:1fr 1fr}}
-  .work-item figure{overflow:hidden;border-radius:3px;background:var(--paper-2)}
-  .work-item img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .7s cubic-bezier(.22,.7,.24,1)}
-  .work-item:hover img{transform:scale(1.028)}
-  .work-item figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-top:15px;
-       padding-top:13px;border-top:1px solid var(--line)}
-  .work-item h3{font-size:15.5px;font-weight:500;letter-spacing:-.005em}
-  .work-item p{font-size:13px;color:var(--ink-3);white-space:nowrap}
+  .aside-grid{display:grid;gap:38px;align-items:center}
+  @media(min-width:880px){.aside-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(44px,5vw,80px)}}
+  .aside-grid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .aside-grid .lbl{display:block;margin-bottom:18px}
+  .aside-grid h2{max-width:13ch}
+  .aside-grid .lead{margin-top:24px}
+  .aside-grid .go{display:inline-block;margin-top:28px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.11em}
 
   /* ---------- About / team ---------- */
-  .about-say{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.9vw,34px);line-height:1.24;letter-spacing:-.012em;max-width:26ch}
-  .about-grid{display:grid;gap:34px}
-  @media(min-width:900px){.about-grid{grid-template-columns:minmax(0,1fr) minmax(0,27rem);gap:64px;align-items:start}}
-  .about-grid > div p{color:var(--ink-2);font-size:16.5px}
-  .about-grid > div p + p{margin-top:18px}
-  .team{display:grid;gap:0;margin-top:clamp(48px,6vw,76px)}
-  @media(min-width:700px){.team{grid-template-columns:repeat(2,1fr);gap:0 44px;max-width:720px}}
-  .member{border-top:1px solid var(--line-2);padding:22px 0 26px;display:flex;align-items:baseline;gap:16px}
-  .member .ini{font-family:var(--serif);font-size:40px;line-height:.8;color:var(--accent);flex:none}
-  .member h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
-  .member p{font-size:13.5px;color:var(--ink-3);margin-top:2px}
+  .about-grid{display:grid;gap:36px}
+  @media(min-width:940px){.about-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(48px,6vw,96px);align-items:start}}
+  .say{font-weight:700;font-stretch:108%;font-size:clamp(21px,2.35vw,32px);line-height:1.16;letter-spacing:-.018em;max-width:22ch}
+  .about-grid .body p{color:var(--ink-2);font-size:16.5px}
+  .about-grid .body p+p{margin-top:20px}
+  .team{display:grid;gap:0;margin-top:clamp(52px,6vw,88px)}
+  @media(min-width:700px){.team{grid-template-columns:repeat(2,1fr);gap:0 48px;max-width:840px}}
+  .who{border-top:2px solid var(--ink);padding:24px 0 30px;display:flex;align-items:baseline;gap:18px}
+  .who .ini{font-weight:800;font-stretch:118%;font-size:38px;line-height:.8;color:var(--cobalt);flex:none}
+  .who h3{font-weight:700;font-stretch:106%;font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+  .who p{font-size:12.5px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.1em}
 
   /* ---------- Process ---------- */
   .steps{display:grid;gap:0}
-  @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);gap:0 44px}}
-  .step{border-top:1px solid var(--line-2);padding-top:24px;padding-bottom:32px}
-  @media(min-width:820px){.step{padding-bottom:0}}
-  .step .n{display:block;font-size:11.5px;font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-  .step h3{font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
-  .step p{margin-top:11px;color:var(--ink-2);font-size:15.5px}
+  @media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:0 48px}}
+  .step{border-top:2px solid var(--ink);padding-top:24px;padding-bottom:38px}
+  @media(min-width:860px){.step{padding-bottom:0}}
+  .step .n{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--cobalt);margin-bottom:18px}
+  .step h3{font-weight:700;font-stretch:106%;font-size:19px;line-height:1.2;letter-spacing:-.01em}
+  .step p{margin-top:13px;color:var(--ink-2);font-size:15.5px}
 
   /* ---------- Service area ---------- */
-  .cities{display:flex;flex-wrap:wrap;gap:0 10px;margin-top:34px;font-family:var(--serif);
-          font-size:clamp(24px,3.4vw,42px);line-height:1.3;letter-spacing:-.015em}
-  .cities span:not(:last-child)::after{content:" ·";color:var(--accent)}
+  .cities{display:flex;flex-wrap:wrap;gap:0 14px;margin-top:34px}
+  .cities span{font-weight:800;font-stretch:118%;text-transform:uppercase;letter-spacing:-.02em;
+               font-size:clamp(24px,4.2vw,58px);line-height:1.18}
+  .cities span:not(:last-child)::after{content:"·";color:var(--cobalt);margin-left:14px}
 
   /* ---------- FAQ ---------- */
-  .faq-list{border-bottom:1px solid var(--line-2)}
-  .faq-item{border-top:1px solid var(--line-2)}
-  .faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:26px;
-       padding:25px 0;font-size:clamp(16.5px,1.8vw,19px);font-weight:500;letter-spacing:-.008em;transition:color .2s}
-  .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item summary:hover{color:var(--accent)}
-  .faq-item summary::after{content:"+";font-size:20px;font-weight:400;color:var(--ink-3);flex:none;line-height:1;transition:transform .25s ease,color .2s}
-  .faq-item[open] summary::after{content:"–";color:var(--accent)}
-  .faq-item .answer{padding:0 0 27px;max-width:70ch;color:var(--ink-2);font-size:16px}
-  @media(min-width:900px){.faq-item .answer{padding-right:12%}}
+  .faq{border-bottom:2px solid var(--ink)}
+  .q{border-top:2px solid var(--ink)}
+  .q summary{
+    list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:28px;
+    padding:26px 0;font-weight:700;font-stretch:104%;font-size:clamp(16px,1.6vw,19px);letter-spacing:-.01em;
+    transition:color .2s ease;
+  }
+  .q summary::-webkit-details-marker{display:none}
+  .q summary:hover{color:var(--cobalt)}
+  .q summary::after{content:"+";font-size:22px;font-weight:600;line-height:1;color:var(--cobalt);flex:none}
+  .q[open] summary::after{content:"–"}
+  .q .a{padding:0 0 30px;max-width:66ch;color:var(--ink-2);font-size:16px}
 
-  /* ---------- Contact (dark close) ---------- */
-  .close{background:var(--ink);color:var(--on-ink)}
-  .close h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.6vw,72px);line-height:1.0;letter-spacing:-.02em;max-width:15ch}
-  .close .label{color:var(--on-ink-2)}
-  .close-body{display:grid;gap:34px;margin-top:clamp(30px,4vw,46px)}
-  @media(min-width:900px){.close-body{grid-template-columns:minmax(0,1fr) minmax(0,25rem);gap:64px;align-items:end}}
-  .close p{color:var(--on-ink-2);font-size:17px;max-width:50ch}
-  .close-actions{display:flex;flex-wrap:wrap;gap:12px}
-  .close-direct{margin-top:24px;font-size:14.5px;color:var(--on-ink-2)}
-  .close-direct a{color:var(--on-ink);text-decoration:none;border-bottom:1px solid var(--line-ink);transition:border-color .2s}
-  .close-direct a:hover{border-color:var(--on-ink)}
+  /* ---------- Close: full inversion ---------- */
+  .close{background:var(--ink);color:var(--chalk)}
+  .close .lbl{color:var(--chalk-2);display:block;margin-bottom:22px}
+  .close h2{max-width:12ch}
+  .close-foot{display:grid;gap:36px;margin-top:clamp(34px,4.2vw,58px)}
+  @media(min-width:940px){.close-foot{grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:end}}
+  .close p{color:var(--chalk-2);font-size:17px;max-width:46ch}
+  .close-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .direct{margin-top:26px;font-size:14px;color:var(--chalk-2)}
+  .direct a{color:var(--chalk);text-decoration:none;border-bottom:2px solid var(--rule-dark)}
+  .direct a:hover{border-color:var(--cobalt)}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--ink);color:var(--on-ink-2);padding-bottom:52px;font-size:13.5px}
-  .foot-in{border-top:1px solid var(--line-ink);padding-top:34px;display:flex;flex-wrap:wrap;gap:18px 34px;justify-content:space-between;align-items:baseline}
-  footer .brand{color:var(--on-ink);font-size:21px}
-  footer a{text-decoration:none;transition:color .2s}
-  footer a:hover{color:var(--on-ink)}
+  footer{background:var(--ink);color:var(--chalk-2);padding-bottom:56px;font-size:12.5px;
+         text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .foot{border-top:1px solid var(--rule-dark);padding-top:34px;display:flex;flex-wrap:wrap;
+        gap:18px 40px;justify-content:space-between;align-items:baseline}
+  footer .mark{color:var(--chalk);font-size:17px;letter-spacing:-.01em}
 
   /* ---------- Motion ---------- */
-  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .85s cubic-bezier(.22,.7,.24,1),transform .85s cubic-bezier(.22,.7,.24,1);transition-delay:var(--d,0s)}
-  [data-reveal].in{opacity:1;transform:none}
+  [data-r]{opacity:0;transform:translateY(18px);
+           transition:opacity .9s cubic-bezier(.2,.75,.25,1),transform .9s cubic-bezier(.2,.75,.25,1);
+           transition-delay:var(--d,0s)}
+  [data-r].in{opacity:1;transform:none}
 
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    [data-reveal]{opacity:1!important;transform:none!important}
+    [data-r]{opacity:1!important;transform:none!important}
     *{transition:none!important;animation:none!important}
   }
 
-  @media(max-width:880px){ .nav-links{display:none} }
+  @media(max-width:920px){ .nav-links{display:none} }
   @media(max-width:560px){
-    /* keep the phone visible — it is the primary conversion on mobile */
-    .nav{height:64px;gap:12px}
-    .brand{font-size:21px;gap:7px}
+    .nav{height:66px;gap:12px}
+    .mark{font-size:16px;gap:8px}
+    .mark i{width:11px;height:11px}
     .nav-end{gap:13px}
-    .lang{font-size:12px;gap:5px}
-    .nav-tel{font-size:13.5px}
-    .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
-    .hero-actions .btn{justify-content:center}
-    .close-actions{display:grid;grid-template-columns:1fr;gap:10px}
-    .close-actions .btn{justify-content:center}
+    .lang{font-size:11px}
+    .tel{font-size:13px}
+    .hero-cta,.close-cta{display:grid;grid-template-columns:1fr;gap:10px}
+    .btn{padding:17px 24px}
   }
 </style>
 </head>
@@ -246,16 +282,16 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="es.html"><i aria-hidden="true"></i>Prime Coat</a>
+    <a class="mark" href="es.html"><i aria-hidden="true"></i>Prime Coat</a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="#servicios">Servicios</a>
-      <a href="#trabajo">Trabajo</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#faq">Preguntas</a>
+      <a class="wipe" href="#servicios">Servicios</a>
+      <a class="wipe" href="#trabajo">Trabajo</a>
+      <a class="wipe" href="#nosotros">Nosotros</a>
+      <a class="wipe" href="#faq">Preguntas</a>
     </nav>
     <div class="nav-end">
       <div class="lang"><a href="index.html">EN</a><span aria-hidden="true">/</span><a href="es.html" class="on" aria-current="page">ES</a></div>
-      <a class="nav-tel" href="tel:+18328068583">(832) 806-8583</a>
+      <a class="tel wipe" href="tel:+18328068583">(832) 806-8583</a>
     </div>
   </div>
 </header>
@@ -265,45 +301,42 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <p class="label" data-reveal>Interior y Exterior · Houston, TX</p>
-    <h1 class="display" data-reveal style="--d:.06s">Una capa nueva, hecha <em>bien</em> a la primera.</h1>
-    <div class="hero-body">
-      <p class="hero-lede" data-reveal style="--d:.12s">Prime Coat lleva ocho años pintando casas por todo Houston. Los que te cotizan el proyecto son los mismos que lo preparan, lo pintan y limpian al terminar.</p>
-      <div class="hero-actions" data-reveal style="--d:.18s">
-        <a class="btn btn-solid" href="#contacto">Cotización gratis</a>
-        <a class="btn btn-line" href="#trabajo">Ver nuestro trabajo</a>
+    <span class="lbl" data-r>Interior y Exterior · Houston, TX</span>
+    <h1 class="d d-xl" data-r style="--d:.06s">Una capa nueva,<br>hecha bien<br>a la primera.</h1>
+    <div class="hero-foot">
+      <p class="lead" data-r style="--d:.12s">Prime Coat lleva ocho años pintando casas por todo Houston. Los que te cotizan el proyecto son los mismos que lo preparan, lo pintan y limpian al terminar.</p>
+      <div class="hero-cta" data-r style="--d:.18s">
+        <a class="btn btn-fill" href="#contacto">Cotización gratis</a>
+        <a class="btn btn-out" href="#trabajo">Ver el trabajo</a>
       </div>
     </div>
-    <div class="hero-figure" data-reveal style="--d:.24s">
+    <div class="hero-shot" data-r style="--d:.24s">
       <img src="projects/project-08-exterior-finished.jpg" alt="Casa de dos pisos en Houston después de un repintado completo de exterior por Prime Coat" width="1200" height="900" fetchpriority="high">
     </div>
   </div>
 </section>
 
-<!-- TRUST -->
-<div class="trust">
-  <div class="wrap trust-in">
-    <div><b>8 años</b><span>Pintando casas en Houston</span></div>
-    <div><b>Los dueños</b><span>Sin subcontratistas, nunca</span></div>
-    <div><b>A tiempo</b><span>Fecha exacta en tu cotización</span></div>
-    <div><b>Gratis</b><span>Cotización a domicilio</span></div>
-    <div><b>ES / EN</b><span>Te atendemos en tu idioma</span></div>
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap stats-in">
+    <div class="stat"><b>Ocho años</b><span>Pintando casas en Houston</span></div>
+    <div class="stat"><b>Los dueños</b><span>Sin subcontratistas, nunca</span></div>
+    <div class="stat"><b>A tiempo</b><span>Fecha exacta en tu cotización</span></div>
+    <div class="stat"><b>Gratis</b><span>Cotización a domicilio, ES e EN</span></div>
   </div>
 </div>
 
 <!-- SERVICES -->
 <section id="servicios">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>01</span>
-      <div>
-        <h2 data-reveal style="--d:.05s">Servicios de pintura de interiores y exteriores.</h2>
-        <p class="sec-lede" data-reveal style="--d:.1s">Tres especialidades, hechas como se debe — incluyendo la preparación que la mayoría de los equipos apura. Esa es la parte que decide si tu pintura sigue viéndose bien en cinco años.</p>
-      </div>
+    <div class="head">
+      <span class="lbl" data-r>Lo que pintamos</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Pintura de casas interior y exterior.</h2>
+      <p class="lead" data-r style="--d:.1s">Tres especialidades, hechas como se debe — incluyendo la preparación que la mayoría de los equipos apura. Esa es la parte que decide si tu pintura sigue viéndose bien en cinco años.</p>
     </div>
     <div class="svc-grid">
-      <article class="svc" data-reveal style="--d:.05s">
-        <h3>Pintura de interiores de casas</h3>
+      <article class="svc" data-r style="--d:.05s">
+        <h3>Pintura de interiores</h3>
         <p>Paredes, techos, molduras, puertas y gabinetes — con líneas rectas y cobertura completa, no una capa delgada que deja ver el color anterior.</p>
         <ul>
           <li>Movemos los muebles y cubrimos bien los pisos</li>
@@ -311,9 +344,9 @@
           <li>Retiramos la cinta y limpiamos el mismo día</li>
         </ul>
         <p class="kw">Paredes y techos · Molduras y puertas · Gabinetes · Paredes de acento</p>
-        <a class="alink" href="#contacto">Cotizar interiores <span aria-hidden="true">→</span></a>
+        <a class="go wipe" href="#contacto">Cotizar interiores</a>
       </article>
-      <article class="svc" data-reveal style="--d:.12s">
+      <article class="svc" data-r style="--d:.12s">
         <h3>Pintura de exteriores y fachadas</h3>
         <p>Fachadas, estuco, aleros y puertas de entrada. Lavamos, raspamos, resanamos e imprimamos antes de la capa final, para que resista el sol, la humedad y las tormentas de Houston.</p>
         <ul>
@@ -322,9 +355,9 @@
           <li>Pintura adecuada para el clima de la Costa del Golfo</li>
         </ul>
         <p class="kw">Fachadas y estuco · Aleros · Puertas de entrada · Cercas</p>
-        <a class="alink" href="#contacto">Cotizar exteriores <span aria-hidden="true">→</span></a>
+        <a class="go wipe" href="#contacto">Cotizar exteriores</a>
       </article>
-      <article class="svc" data-reveal style="--d:.19s">
+      <article class="svc" data-r style="--d:.19s">
         <h3>Drywall, molduras y texturizado de techos</h3>
         <p>El trabajo de reparación que tiene que pasar antes de que la pintura se vea bien — más la carpintería de acabado y el texturizado de techos que la mayoría de los pintores te manda a contratar por fuera.</p>
         <ul>
@@ -333,98 +366,84 @@
           <li>Textura de techo igualada al acabado existente</li>
         </ul>
         <p class="kw">Reparación de drywall · Molduras · Textura de techo · Acabados</p>
-        <a class="alink" href="#contacto">Preguntar por reparaciones <span aria-hidden="true">→</span></a>
+        <a class="go wipe" href="#contacto">Preguntar por reparaciones</a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- WORK -->
-<section id="trabajo" class="band">
+<section id="trabajo" class="panel">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>02</span>
-      <div>
-        <h2 data-reveal style="--d:.05s">Proyectos recientes de pintura en Houston.</h2>
-        <p class="sec-lede" data-reveal style="--d:.1s">Una muestra de trabajos de interior y exterior en el área de Houston — casas reales, acabados reales.</p>
-      </div>
+    <div class="head">
+      <span class="lbl" data-r>Trabajo seleccionado</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Casas que hemos pintado.</h2>
+      <p class="lead" data-r style="--d:.1s">Trabajos de interior y exterior en el área de Houston — casas reales, acabados reales, sin fotos de catálogo.</p>
     </div>
     <div class="work-grid">
-      <div class="work-item" data-reveal style="--d:.04s">
-        <figure>
-          <img src="projects/house-01-exterior-two-storey.jpg" alt="Casa de dos pisos en Houston despues de un repintado completo de exterior" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Repintado completo de exterior</h3><p>Houston, TX</p></figcaption>
-        </figure>
+      <div class="shot w-wide" data-r style="--d:.04s">
+        <figure><img src="projects/house-01-exterior-two-storey.jpg" alt="Casa de dos pisos en Houston después de un repintado completo" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Repintado de exterior</h3><p>Houston, TX</p></div>
       </div>
-      <div class="work-item" data-reveal style="--d:.08s">
-        <figure>
-          <img src="projects/house-02-interior-doors-trim.jpg" alt="Puerta, molduras y mueble interior pintados en azul" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Puertas y molduras interiores</h3><p>Trabajo de color</p></figcaption>
-        </figure>
+      <div class="shot w-third" data-r style="--d:.08s">
+        <figure><img src="projects/house-02-interior-doors-trim.jpg" alt="Puerta, molduras y mueble interior pintados en azul" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Puertas y molduras</h3><p>Trabajo de color</p></div>
       </div>
-      <div class="work-item" data-reveal style="--d:.12s">
-        <figure>
-          <img src="projects/house-03-exterior-in-progress.jpg" alt="Pintor trabajando en los aleros de una casa de ladrillo en Houston" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Repintado de exterior en proceso</h3><p>Houston, TX</p></figcaption>
-        </figure>
+      <div class="shot w-half" data-r style="--d:.12s">
+        <figure><img src="projects/house-03-exterior-in-progress.jpg" alt="Pintor trabajando en los aleros de una casa de ladrillo en Houston" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Exterior en proceso</h3><p>Houston, TX</p></div>
       </div>
-      <div class="work-item" data-reveal style="--d:.16s">
-        <figure>
-          <img src="projects/house-04-interior-walls.jpg" alt="Paredes, molduras y puertas interiores recien pintadas" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Paredes y molduras interiores</h3><p>Sala</p></figcaption>
-        </figure>
+      <div class="shot w-half" data-r style="--d:.16s">
+        <figure><img src="projects/house-04-interior-walls.jpg" alt="Paredes, molduras y puertas interiores recién pintadas" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Paredes y molduras</h3><p>Sala</p></div>
       </div>
-      <div class="work-item" data-reveal style="--d:.20s">
-        <figure>
-          <img src="projects/house-05-exterior-porch.jpg" alt="Porche cubierto con ladrillo y techo pintados" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Porche y ladrillo</h3><p>Houston, TX</p></figcaption>
-        </figure>
+      <div class="shot w-third" data-r style="--d:.2s">
+        <figure><img src="projects/house-05-exterior-porch.jpg" alt="Porche cubierto con ladrillo y techo pintados" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Porche y ladrillo</h3><p>Houston, TX</p></div>
       </div>
-      <div class="work-item" data-reveal style="--d:.24s">
-        <figure>
-          <img src="projects/house-06-exterior-brick.jpg" alt="Exterior de ladrillo pintado de blanco con molduras nuevas" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Exterior de ladrillo pintado</h3><p>Houston, TX</p></figcaption>
-        </figure>
+      <div class="shot w-wide" data-r style="--d:.24s">
+        <figure><img src="projects/house-06-exterior-brick.jpg" alt="Exterior de ladrillo pintado de blanco con molduras nuevas" loading="lazy" width="1200" height="900"></figure>
+        <div class="cap"><h3>Ladrillo pintado</h3><p>Houston, TX</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- APARTADO GABINETES -->
-<section class="aside-band">
-  <div class="wrap note-grid">
+<!-- CABINETS -->
+<section>
+  <div class="wrap aside-grid">
     <div>
-      <p class="label" data-reveal>Tambi&eacute;n conviene saber</p>
-      <h2 data-reveal style="--d:.05s">Tambi&eacute;n pintamos gabinetes de cocina.</h2>
-      <p class="note-copy" data-reveal style="--d:.1s">Pintar los gabinetes es la forma m&aacute;s econ&oacute;mica de que una cocina se vea nueva sin remodelarla. Quitamos las puertas, las limpiamos y lijamos, imprimamos y damos el acabado para que quede liso y resistente &mdash; no pegajoso ni con marcas.</p>
-      <a class="alink" href="#contacto" data-reveal style="--d:.14s">Preguntar por gabinetes <span aria-hidden="true">&rarr;</span></a>
+      <span class="lbl" data-r>También conviene saber</span>
+      <h2 class="d d-m" data-r style="--d:.05s">También pintamos gabinetes de cocina.</h2>
+      <p class="lead" data-r style="--d:.1s">Pintar los gabinetes es la forma más económica de que una cocina se vea nueva sin remodelarla. Quitamos las puertas, las limpiamos y lijamos, imprimamos y damos el acabado para que quede liso y resistente — no pegajoso ni con marcas.</p>
+      <a class="go wipe" href="#contacto" data-r style="--d:.14s">Preguntar por gabinetes</a>
     </div>
-    <figure data-reveal style="--d:.08s">
+    <figure data-r style="--d:.08s">
       <img src="projects/cabinets-kitchen.jpg" alt="Gabinetes de cocina repintados en blanco, Houston, TX" loading="lazy" width="1200" height="900">
     </figure>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="nosotros">
+<section id="nosotros" class="panel">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>03</span>
-      <div><h2 data-reveal style="--d:.05s">Conoce a los pintores detrás de Prime Coat.</h2></div>
+    <div class="head">
+      <span class="lbl" data-r>A quién contratas</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Los dueños están en la obra.</h2>
     </div>
     <div class="about-grid">
-      <p class="about-say" data-reveal>Ocho años pintando casas por todo Houston, con los dueños en la obra — no una cuadrilla que nunca has visto.</p>
-      <div data-reveal style="--d:.08s">
+      <p class="say" data-r>Ocho años pintando casas por todo Houston — y los que te cotizan el proyecto son los que tienen la brocha en la mano.</p>
+      <div class="body" data-r style="--d:.08s">
         <p>No somos un centro de llamadas que le pasa tu trabajo a quien esté libre esa semana. Los que te cotizan el proyecto son los mismos que llegan, preparan, pintan y limpian al terminar.</p>
         <p>Esa es la diferencia que se nota en la obra: un solo equipo, un solo estándar, y alguien que contesta el teléfono cuando llamas.</p>
       </div>
     </div>
     <div class="team">
-      <div class="member" data-reveal style="--d:.06s">
+      <div class="who" data-r style="--d:.06s">
         <span class="ini" aria-hidden="true">D</span>
         <div><h3>Denzel</h3><p>Socio y pintor</p></div>
       </div>
-      <div class="member" data-reveal style="--d:.12s">
+      <div class="who" data-r style="--d:.12s">
         <span class="ini" aria-hidden="true">W</span>
         <div><h3>Wilson</h3><p>Socio y pintor</p></div>
       </div>
@@ -433,24 +452,24 @@
 </section>
 
 <!-- PROCESS -->
-<section class="band">
+<section>
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>04</span>
-      <div><h2 data-reveal style="--d:.05s">Por qué nos eligen para pintar su casa.</h2></div>
+    <div class="head">
+      <span class="lbl" data-r>Cómo trabajamos</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Preparar. Pintar. Limpiar.</h2>
     </div>
     <div class="steps">
-      <div class="step" data-reveal style="--d:.05s">
+      <div class="step" data-r style="--d:.05s">
         <span class="n">Preparación</span>
         <h3>Preparamos como se debe</h3>
         <p>Lavado, lijado, resane, cinta e imprimación. La preparación es lo que hace que el acabado dure — por eso no la saltamos.</p>
       </div>
-      <div class="step" data-reveal style="--d:.11s">
+      <div class="step" data-r style="--d:.11s">
         <span class="n">Pintura</span>
         <h3>Capas limpias y parejas</h3>
         <p>Pintura de calidad, líneas rectas y cobertura completa. Tratamos tu casa como si fuera la nuestra.</p>
       </div>
-      <div class="step" data-reveal style="--d:.17s">
+      <div class="step" data-r style="--d:.17s">
         <span class="n">Limpieza</span>
         <h3>Lo dejamos impecable</h3>
         <p>Cinta retirada, pisos despejados, basura recogida. Entras a un cuarto terminado, no a un desorden.</p>
@@ -459,18 +478,15 @@
   </div>
 </section>
 
-
-<!-- SERVICE AREA -->
-<section>
+<!-- AREA -->
+<section class="panel">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>05</span>
-      <div>
-        <h2 data-reveal style="--d:.05s">Pintores de casas en Houston y alrededores.</h2>
-        <p class="sec-lede" data-reveal style="--d:.1s">Trabajamos en toda el área metropolitana de Houston. ¿No sabes si llegamos hasta ti? Solo pregunta — si no cubrimos tu zona, te orientamos hacia dónde acudir.</p>
-      </div>
+    <div class="head">
+      <span class="lbl" data-r>Zona de servicio</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Houston y alrededores.</h2>
+      <p class="lead" data-r style="--d:.1s">Trabajamos en toda el área metropolitana de Houston. ¿No sabes si llegamos hasta ti? Solo pregunta — si no cubrimos tu zona, te orientamos hacia dónde acudir.</p>
     </div>
-    <div class="cities display" data-reveal>
+    <div class="cities" data-r>
       <span>Houston</span><span>Katy</span><span>Sugar Land</span><span>Pearland</span><span>Cypress</span><span>The Woodlands</span><span>Pasadena</span>
     </div>
   </div>
@@ -479,38 +495,38 @@
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>06</span>
-      <div><h2 data-reveal style="--d:.05s">Preguntas frecuentes sobre pintura de casas en Houston.</h2></div>
+    <div class="head">
+      <span class="lbl" data-r>Preguntas</span>
+      <h2 class="d d-l" data-r style="--d:.05s">Antes de llamar.</h2>
     </div>
-    <div class="faq-list">
-      <details class="faq-item" data-reveal style="--d:.03s">
+    <div class="faq">
+      <details class="q" data-r style="--d:.03s">
         <summary>¿Cuánto cuesta pintar una casa en Houston?</summary>
-        <div class="answer">Depende de los metros cuadrados, el estado de las superficies y cuánta preparación se necesita. Pintar cuartos por dentro y repintar toda la fachada tienen precios muy distintos. Damos cotizaciones gratis y detalladas después de ver el espacio — sin adivinar por teléfono y sin cargos sorpresa.</div>
+        <div class="a">Depende de los metros cuadrados, el estado de las superficies y cuánta preparación se necesita. Pintar cuartos por dentro y repintar toda la fachada tienen precios muy distintos. Damos cotizaciones gratis y detalladas después de ver el espacio — sin adivinar por teléfono y sin cargos sorpresa.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.06s">
+      <details class="q" data-r style="--d:.06s">
         <summary>¿Cuánto tiempo toma pintar una casa por dentro o por fuera?</summary>
-        <div class="answer">Depende de la casa — los metros cuadrados, cuántas superficies y cuánta reparación necesitan las paredes antes de pintar. Un trabajo de interior sencillo suele tomar dos o tres días; una casa más grande, o que necesita buena preparación, toma más. En cualquier caso te damos las fechas exactas junto con la cotización, y te avisamos de inmediato si algo cambia. No empezamos un trabajo que no podamos terminar a tiempo.</div>
+        <div class="a">Depende de la casa — los metros cuadrados, cuántas superficies y cuánta reparación necesitan las paredes antes de pintar. Un trabajo de interior sencillo suele tomar dos o tres días; una casa más grande, o que necesita buena preparación, toma más. En cualquier caso te damos las fechas exactas junto con la cotización, y te avisamos de inmediato si algo cambia. No empezamos un trabajo que no podamos terminar a tiempo.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.09s">
+      <details class="q" data-r style="--d:.09s">
         <summary>¿Tengo que mover mis muebles antes de que pinten?</summary>
-        <div class="answer">No. Movemos los muebles al centro del cuarto, los cubrimos y protegemos tus pisos antes de sacar la pintura. Si tienes algo frágil o de valor que prefieras mover tú, solo avísanos con tiempo.</div>
+        <div class="a">No. Movemos los muebles al centro del cuarto, los cubrimos y protegemos tus pisos antes de sacar la pintura. Si tienes algo frágil o de valor que prefieras mover tú, solo avísanos con tiempo.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.12s">
+      <details class="q" data-r style="--d:.12s">
         <summary>¿Cuál es la mejor época del año para pintar exteriores en Houston?</summary>
-        <div class="answer">El otoño y la primavera son ideales — las temperaturas moderadas y menos humedad ayudan a que la pintura cure bien. En verano también se puede si trabajamos evitando el calor y la lluvia de la tarde. Nunca pintamos sobre superficies húmedas, que es lo que causa que se despegue después.</div>
+        <div class="a">El otoño y la primavera son ideales — las temperaturas moderadas y menos humedad ayudan a que la pintura cure bien. En verano también se puede si trabajamos evitando el calor y la lluvia de la tarde. Nunca pintamos sobre superficies húmedas, que es lo que causa que se despegue después.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.15s">
+      <details class="q" data-r style="--d:.15s">
         <summary>¿Qué tipo de pintura usan?</summary>
-        <div class="answer">Pinturas de calidad para interior y exterior, adecuadas a la superficie y al clima de Houston. Si ya tienes una marca o un color escogido, lo usamos. Si no, te explicamos las opciones que mejor aguantan aquí.</div>
+        <div class="a">Pinturas de calidad para interior y exterior, adecuadas a la superficie y al clima de Houston. Si ya tienes una marca o un color escogido, lo usamos. Si no, te explicamos las opciones que mejor aguantan aquí.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.18s">
+      <details class="q" data-r style="--d:.18s">
         <summary>¿Pintan gabinetes de cocina?</summary>
-        <div class="answer">Sí. La pintura de gabinetes es parte de nuestro trabajo de interiores — limpiamos, lijamos, imprimamos y damos el acabado para que quede liso y duradero, no pegajoso ni con marcas. Es uno de los cambios de mayor impacto en una cocina sin hacer una remodelación completa.</div>
+        <div class="a">Sí. La pintura de gabinetes es parte de nuestro trabajo de interiores — limpiamos, lijamos, imprimamos y damos el acabado para que quede liso y duradero, no pegajoso ni con marcas. Es uno de los cambios de mayor impacto en una cocina sin hacer una remodelación completa.</div>
       </details>
-      <details class="faq-item" data-reveal style="--d:.21s">
+      <details class="q" data-r style="--d:.21s">
         <summary>¿Cómo pido una cotización?</summary>
-        <div class="answer">Escríbenos o llámanos con una descripción corta de tu proyecto — interior, exterior o los dos — y más o menos cuánto espacio abarca. Coordinamos una visita para verlo y te damos una cotización por escrito sin costo.</div>
+        <div class="a">Escríbenos o llámanos con una descripción corta de tu proyecto — interior, exterior o los dos — y más o menos cuánto espacio abarca. Coordinamos una visita para verlo y te damos una cotización por escrito sin costo.</div>
       </details>
     </div>
   </div>
@@ -518,27 +534,27 @@
 
 </main>
 
-<!-- CONTACT -->
+<!-- CLOSE -->
 <section class="close" id="contacto">
   <div class="wrap">
-    <p class="label" data-reveal>Contáctanos</p>
-    <h2 data-reveal style="--d:.05s">Pide tu cotización gratis de pintura.</h2>
-    <div class="close-body">
-      <p data-reveal style="--d:.1s">Cuéntanos sobre tu proyecto y vamos a verlo. Cada casa es distinta, así que damos el precio después de ver el espacio en persona — sin números inventados por teléfono ni cargos sorpresa después.</p>
-      <div data-reveal style="--d:.16s">
-        <div class="close-actions">
-          <a class="btn btn-paper" href="tel:+18328068583">Llama (832) 806-8583</a>
-          <a class="btn btn-ghost-ink" href="mailto:jr3485403@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&amp;body=Hola%20Prime%20Coat%2C%20quisiera%20una%20cotizaci%C3%B3n.%20Este%20es%20mi%20proyecto%3A">Escríbenos</a>
+    <span class="lbl" data-r>Contáctanos</span>
+    <h2 class="d d-l" data-r style="--d:.05s">Pide tu cotización gratis.</h2>
+    <div class="close-foot">
+      <p data-r style="--d:.1s">Cuéntanos sobre tu proyecto y vamos a verlo. Cada casa es distinta, así que damos el precio después de ver el espacio en persona — sin números inventados por teléfono ni cargos sorpresa después.</p>
+      <div data-r style="--d:.16s">
+        <div class="close-cta">
+          <a class="btn btn-chalk" href="tel:+18328068583">Llama (832) 806-8583</a>
+          <a class="btn btn-onink" href="mailto:jr3485403@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&amp;body=Hola%20Prime%20Coat%2C%20quisiera%20una%20cotizaci%C3%B3n.%20Este%20es%20mi%20proyecto%3A">Escríbenos</a>
         </div>
-        <p class="close-direct">O contáctanos directo en <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
+        <p class="direct">O contáctanos directo en <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap foot-in">
-    <span class="brand"><i aria-hidden="true"></i>Prime Coat</span>
+  <div class="wrap foot">
+    <span class="mark"><i aria-hidden="true"></i>Prime Coat</span>
     <span>Pintura interior y exterior · Drywall · Textura de techos · Houston, TX</span>
     <span>© 2026 Prime Coat</span>
   </div>
@@ -546,7 +562,7 @@
 
 <script>
   (function(){
-    var els = document.querySelectorAll('[data-reveal]');
+    var els = document.querySelectorAll('[data-r]');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce || !('IntersectionObserver' in window)) {
       els.forEach(function(el){ el.classList.add('in'); });
