@@ -7,6 +7,10 @@
 <meta name="description" content="Prime Coat es una empresa de pintura de casas en Houston atendida por sus dueños — interior, exterior, drywall, molduras y texturizado de techos. 8 años de experiencia. Cotización gratis a domicilio.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="es" href="es.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1F3FD1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
@@ -240,6 +244,34 @@
         gap:18px 40px;justify-content:space-between;align-items:baseline}
   footer .mark{color:var(--chalk);font-size:17px;letter-spacing:-.01em}
 
+  /* ---------- Mobile menu ---------- */
+  .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
+          border:2px solid var(--ink);background:var(--putty);cursor:pointer;padding:0;flex:none}
+  .burger span{display:block;width:20px;height:2px;background:var(--ink);margin:0 auto;
+               transition:transform .25s ease,opacity .2s ease}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-nav{display:none;flex-direction:column;background:var(--putty);border-bottom:2px solid var(--ink)}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:17px var(--gut);font-size:14px;font-weight:700;text-transform:uppercase;
+                letter-spacing:.11em;text-decoration:none;color:var(--ink);border-top:1px solid var(--rule)}
+  .mobile-nav a.mcta{background:var(--cobalt);color:#fff;border-top:2px solid var(--ink);text-align:center;letter-spacing:.12em}
+  @media(min-width:921px){.burger,.mobile-nav{display:none!important}}
+  @media(max-width:920px){.burger{display:flex}}
+
+  /* ---------- Contact form ---------- */
+  .qform{display:grid;gap:15px}
+  .qform label{display:grid;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--chalk-2)}
+  .qform input,.qform textarea{font:inherit;font-size:16px;background:transparent;color:var(--chalk);
+       border:2px solid var(--rule-dark);border-radius:0;padding:13px 14px;width:100%}
+  .qform input::placeholder,.qform textarea::placeholder{color:#5b6169}
+  .qform input:focus,.qform textarea:focus{outline:none;border-color:var(--cobalt-lift)}
+  .qform textarea{resize:vertical}
+  .qform button{margin-top:4px;justify-self:start;cursor:pointer}
+  .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+  @media(min-width:940px){.close-foot{grid-template-columns:minmax(0,1fr) minmax(0,27rem)!important;align-items:start!important}}
+
   /* ---------- Motion ---------- */
   [data-r]{opacity:0;transform:translateY(18px);
            transition:opacity .9s cubic-bezier(.2,.75,.25,1),transform .9s cubic-bezier(.2,.75,.25,1);
@@ -283,8 +315,16 @@
     <div class="nav-end">
       <div class="lang"><a href="index.html">EN</a><span aria-hidden="true">/</span><a href="es.html" class="on" aria-current="page">ES</a></div>
       <a class="tel wipe" href="tel:+18328068583">(832) 806-8583</a>
+      <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="#servicios">Servicios</a>
+    <a href="#trabajo">Trabajo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#faq">Preguntas</a>
+    <a class="mcta" href="#contacto">Cotización gratis</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -526,14 +566,20 @@
     <span class="lbl" data-r>Contáctanos</span>
     <h2 class="d d-l" data-r style="--d:.05s">Pide tu cotización gratis.</h2>
     <div class="close-foot">
-      <p data-r style="--d:.1s">Cuéntanos sobre tu proyecto y vamos a verlo. Cada casa es distinta, así que damos el precio después de ver el espacio en persona — sin números inventados por teléfono ni cargos sorpresa después.</p>
-      <div data-r style="--d:.16s">
-        <div class="close-cta">
-          <a class="btn btn-chalk" href="tel:+18328068583">Llama (832) 806-8583</a>
-          <a class="btn btn-onink" href="mailto:jr3485403@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n&amp;body=Hola%20Prime%20Coat%2C%20quisiera%20una%20cotizaci%C3%B3n.%20Este%20es%20mi%20proyecto%3A">Escríbenos</a>
-        </div>
-        <p class="direct">O contáctanos directo en <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
+      <div data-r style="--d:.1s">
+        <p>Cuéntanos sobre tu proyecto y vamos a verlo. Cada casa es distinta, así que damos el precio después de ver el espacio en persona — sin números inventados por teléfono ni cargos sorpresa después.</p>
+        <div class="close-cta"><a class="btn btn-chalk" href="tel:+18328068583">Llama (832) 806-8583</a></div>
+        <p class="direct">O escríbenos a <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
       </div>
+      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="qform" data-r style="--d:.16s">
+        <input type="hidden" name="form-name" value="quote">
+        <p class="hp"><label>Deja esto en blanco <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>Nombre<input type="text" name="name" autocomplete="name" required></label>
+        <label>Teléfono<input type="tel" name="phone" autocomplete="tel" required></label>
+        <label>Correo (opcional)<input type="email" name="email" autocomplete="email"></label>
+        <label>Tu proyecto<textarea name="project" rows="3" placeholder="Interior, exterior, gabinetes… más o menos cuánto espacio" required></textarea></label>
+        <button type="submit" class="btn btn-fill">Enviar solicitud</button>
+      </form>
     </div>
   </div>
 </section>
@@ -560,6 +606,18 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var b=document.querySelector('.burger'), m=document.getElementById('mobile-nav');
+    if(!b||!m) return;
+    b.addEventListener('click',function(){
+      var open=m.classList.toggle('open');
+      b.setAttribute('aria-expanded', open?'true':'false');
+    });
+    m.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ m.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+    });
   })();
 </script>
 

@@ -7,6 +7,10 @@
 <meta name="description" content="Prime Coat is an owner-run Houston house painting company — interior, exterior, drywall, baseboards and ceiling texture. 8 years experience. Free on-site estimates across Houston.">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="es" href="es.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1F3FD1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
@@ -240,6 +244,34 @@
         gap:18px 40px;justify-content:space-between;align-items:baseline}
   footer .mark{color:var(--chalk);font-size:17px;letter-spacing:-.01em}
 
+  /* ---------- Mobile menu ---------- */
+  .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
+          border:2px solid var(--ink);background:var(--putty);cursor:pointer;padding:0;flex:none}
+  .burger span{display:block;width:20px;height:2px;background:var(--ink);margin:0 auto;
+               transition:transform .25s ease,opacity .2s ease}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-nav{display:none;flex-direction:column;background:var(--putty);border-bottom:2px solid var(--ink)}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:17px var(--gut);font-size:14px;font-weight:700;text-transform:uppercase;
+                letter-spacing:.11em;text-decoration:none;color:var(--ink);border-top:1px solid var(--rule)}
+  .mobile-nav a.mcta{background:var(--cobalt);color:#fff;border-top:2px solid var(--ink);text-align:center;letter-spacing:.12em}
+  @media(min-width:921px){.burger,.mobile-nav{display:none!important}}
+  @media(max-width:920px){.burger{display:flex}}
+
+  /* ---------- Contact form ---------- */
+  .qform{display:grid;gap:15px}
+  .qform label{display:grid;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--chalk-2)}
+  .qform input,.qform textarea{font:inherit;font-size:16px;background:transparent;color:var(--chalk);
+       border:2px solid var(--rule-dark);border-radius:0;padding:13px 14px;width:100%}
+  .qform input::placeholder,.qform textarea::placeholder{color:#5b6169}
+  .qform input:focus,.qform textarea:focus{outline:none;border-color:var(--cobalt-lift)}
+  .qform textarea{resize:vertical}
+  .qform button{margin-top:4px;justify-self:start;cursor:pointer}
+  .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+  @media(min-width:940px){.close-foot{grid-template-columns:minmax(0,1fr) minmax(0,27rem)!important;align-items:start!important}}
+
   /* ---------- Motion ---------- */
   [data-r]{opacity:0;transform:translateY(18px);
            transition:opacity .9s cubic-bezier(.2,.75,.25,1),transform .9s cubic-bezier(.2,.75,.25,1);
@@ -283,8 +315,16 @@
     <div class="nav-end">
       <div class="lang"><a href="index.html" class="on" aria-current="page">EN</a><span aria-hidden="true">/</span><a href="es.html">ES</a></div>
       <a class="tel wipe" href="tel:+18328068583">(832) 806-8583</a>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a class="mcta" href="#contact">Free estimate</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -526,14 +566,20 @@
     <span class="lbl" data-r>Get in touch</span>
     <h2 class="d d-l" data-r style="--d:.05s">Get a free quote.</h2>
     <div class="close-foot">
-      <p data-r style="--d:.1s">Tell us about your project and we'll come take a look. Every house is different, so we price after seeing the space in person — no guessed numbers over the phone, no surprise charges later.</p>
-      <div data-r style="--d:.16s">
-        <div class="close-cta">
-          <a class="btn btn-chalk" href="tel:+18328068583">Call (832) 806-8583</a>
-          <a class="btn btn-onink" href="mailto:jr3485403@gmail.com?subject=Painting%20quote%20request&amp;body=Hi%20Prime%20Coat%2C%20I'd%20like%20a%20quote.%20Here's%20my%20project%3A">Email us</a>
-        </div>
-        <p class="direct">Or reach us directly at <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
+      <div data-r style="--d:.1s">
+        <p>Tell us about your project and we'll come take a look. Every house is different, so we price after seeing the space in person — no guessed numbers over the phone, no surprise charges later.</p>
+        <div class="close-cta"><a class="btn btn-chalk" href="tel:+18328068583">Call (832) 806-8583</a></div>
+        <p class="direct">Or email us at <a href="mailto:jr3485403@gmail.com">jr3485403@gmail.com</a></p>
       </div>
+      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="qform" data-r style="--d:.16s">
+        <input type="hidden" name="form-name" value="quote">
+        <p class="hp"><label>Leave this blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>Name<input type="text" name="name" autocomplete="name" required></label>
+        <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+        <label>Email (optional)<input type="email" name="email" autocomplete="email"></label>
+        <label>Your project<textarea name="project" rows="3" placeholder="Interior, exterior, cabinets… roughly how much space" required></textarea></label>
+        <button type="submit" class="btn btn-fill">Send request</button>
+      </form>
     </div>
   </div>
 </section>
@@ -560,6 +606,18 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var b=document.querySelector('.burger'), m=document.getElementById('mobile-nav');
+    if(!b||!m) return;
+    b.addEventListener('click',function(){
+      var open=m.classList.toggle('open');
+      b.setAttribute('aria-expanded', open?'true':'false');
+    });
+    m.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ m.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+    });
   })();
 </script>
 
