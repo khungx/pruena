@@ -135,6 +135,15 @@
   .svc .kw{margin-top:20px;font-size:13.5px;color:var(--ink-3);line-height:1.55}
   .svc .alink{margin-top:24px}
 
+  /* ---------- Cabinets aside ---------- */
+  .aside-band{background:var(--paper);border-top:1px solid var(--line)}
+  .note-grid{display:grid;gap:34px;align-items:center}
+  @media(min-width:820px){.note-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}}
+  .note-grid h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.02;letter-spacing:-.018em;max-width:16ch;margin-top:14px}
+  .note-copy{margin-top:20px;color:var(--ink-2);font-size:16.5px;max-width:52ch}
+  .note-grid .alink{margin-top:26px}
+  .note-grid img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
+
   /* ---------- Work ---------- */
   .work-grid{display:grid;gap:clamp(34px,4vw,56px) clamp(20px,3vw,40px)}
   @media(min-width:800px){.work-grid{grid-template-columns:1fr 1fr}}
@@ -153,7 +162,7 @@
   .about-grid > div p{color:var(--ink-2);font-size:16.5px}
   .about-grid > div p + p{margin-top:18px}
   .team{display:grid;gap:0;margin-top:clamp(48px,6vw,76px)}
-  @media(min-width:700px){.team{grid-template-columns:repeat(3,1fr);gap:0 44px}}
+  @media(min-width:700px){.team{grid-template-columns:repeat(2,1fr);gap:0 44px;max-width:720px}}
   .member{border-top:1px solid var(--line-2);padding:22px 0 26px;display:flex;align-items:baseline;gap:16px}
   .member .ini{font-family:var(--serif);font-size:40px;line-height:.8;color:var(--accent);flex:none}
   .member h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
@@ -259,7 +268,7 @@
     <p class="label" data-reveal>Interior &amp; Exterior · Houston, TX</p>
     <h1 class="display" data-reveal style="--d:.06s">A fresh coat, done <em>right</em> the first time.</h1>
     <div class="hero-body">
-      <p class="hero-lede" data-reveal style="--d:.12s">Prime Coat is three partners with eight years of painting homes across Houston. The people who quote your project are the same people who prep it, paint it, and clean up after.</p>
+      <p class="hero-lede" data-reveal style="--d:.12s">Prime Coat has spent eight years painting homes across Houston. The people who quote your project are the same people who prep it, paint it, and clean up after.</p>
       <div class="hero-actions" data-reveal style="--d:.18s">
         <a class="btn btn-solid" href="#contact">Get a free estimate</a>
         <a class="btn btn-line" href="#work">See our work</a>
@@ -343,41 +352,56 @@
     <div class="work-grid">
       <div class="work-item" data-reveal style="--d:.04s">
         <figure>
-          <img src="projects/work-01-kitchen-cabinets.jpg" alt="Kitchen with cabinets repainted white by Prime Coat" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Kitchen cabinet repaint</h3><p>Houston, TX</p></figcaption>
+          <img src="projects/house-01-exterior-two-storey.jpg" alt="Two-storey Houston home after a full exterior repaint" loading="lazy" width="1200" height="900">
+          <figcaption><h3>Full exterior repaint</h3><p>Houston, TX</p></figcaption>
         </figure>
       </div>
       <div class="work-item" data-reveal style="--d:.08s">
         <figure>
-          <img src="projects/work-02-builtin-cabinetry.jpg" alt="Built-in cabinetry finished in sage green with wood uppers" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Built-in cabinetry</h3><p>Interior detail</p></figcaption>
+          <img src="projects/house-02-interior-doors-trim.jpg" alt="Interior door, trim and built-in painted in blue" loading="lazy" width="1200" height="900">
+          <figcaption><h3>Interior doors &amp; trim</h3><p>Colour work</p></figcaption>
         </figure>
       </div>
       <div class="work-item" data-reveal style="--d:.12s">
         <figure>
-          <img src="projects/work-03-exterior-in-progress.jpg" alt="Painter working on the eaves of a brick home in Houston" loading="lazy" width="1200" height="900">
+          <img src="projects/house-03-exterior-in-progress.jpg" alt="Painter working on the eaves of a brick home in Houston" loading="lazy" width="1200" height="900">
           <figcaption><h3>Exterior repaint in progress</h3><p>Houston, TX</p></figcaption>
         </figure>
       </div>
       <div class="work-item" data-reveal style="--d:.16s">
         <figure>
-          <img src="projects/work-04-garage-doors.jpg" alt="Freshly painted garage doors and white trim" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Garage doors & trim</h3><p>Houston, TX</p></figcaption>
+          <img src="projects/house-04-interior-walls.jpg" alt="Interior walls, trim and doors freshly painted" loading="lazy" width="1200" height="900">
+          <figcaption><h3>Interior walls &amp; trim</h3><p>Living space</p></figcaption>
         </figure>
       </div>
       <div class="work-item" data-reveal style="--d:.20s">
         <figure>
-          <img src="projects/work-05-exterior-two-storey.jpg" alt="Two-storey Houston home after a full exterior repaint" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Full exterior repaint</h3><p>Houston, TX</p></figcaption>
+          <img src="projects/house-05-exterior-porch.jpg" alt="Covered porch with painted brick and ceiling" loading="lazy" width="1200" height="900">
+          <figcaption><h3>Covered porch &amp; brick</h3><p>Houston, TX</p></figcaption>
         </figure>
       </div>
       <div class="work-item" data-reveal style="--d:.24s">
         <figure>
-          <img src="projects/work-06-cabinet-prep.jpg" alt="Cabinet doors laid out, primed and finished off site" loading="lazy" width="1200" height="900">
-          <figcaption><h3>Cabinet prep &amp; finish</h3><p>Interior detail</p></figcaption>
+          <img src="projects/house-06-exterior-brick.jpg" alt="Painted white brick exterior with fresh trim" loading="lazy" width="1200" height="900">
+          <figcaption><h3>Painted brick exterior</h3><p>Houston, TX</p></figcaption>
         </figure>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CABINETS ASIDE -->
+<section class="aside-band">
+  <div class="wrap note-grid">
+    <div>
+      <p class="label" data-reveal>Also worth knowing</p>
+      <h2 data-reveal style="--d:.05s">We paint kitchen cabinets too.</h2>
+      <p class="note-copy" data-reveal style="--d:.1s">Cabinet painting is the cheapest way to make a kitchen look new without a remodel. We take the doors off, clean and sand them, prime, and finish them so the result is smooth and hard-wearing &mdash; not tacky or streaky.</p>
+      <a class="alink" href="#contact" data-reveal style="--d:.14s">Ask about cabinets <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <figure data-reveal style="--d:.08s">
+      <img src="projects/cabinets-kitchen.jpg" alt="Kitchen cabinets repainted white, Houston, TX" loading="lazy" width="1200" height="900">
+    </figure>
   </div>
 </section>
 
@@ -389,7 +413,7 @@
       <div><h2 data-reveal style="--d:.05s">Meet the painters behind Prime Coat.</h2></div>
     </div>
     <div class="about-grid">
-      <p class="about-say" data-reveal>Prime Coat is three partners — Elias, Denzel and Wilson — with eight years of painting homes across Houston.</p>
+      <p class="about-say" data-reveal>Eight years painting homes across Houston, with the owners on the job — not a crew you have never met.</p>
       <div data-reveal style="--d:.08s">
         <p>We're not a call centre that farms your job out to whoever's free that week. The people who quote your project are the same people who show up, prep it, paint it, and clean up after.</p>
         <p>That's the difference you feel on a job site: one crew, one standard, and someone who answers the phone when you call.</p>
@@ -397,14 +421,10 @@
     </div>
     <div class="team">
       <div class="member" data-reveal style="--d:.06s">
-        <span class="ini" aria-hidden="true">E</span>
-        <div><h3>Elias</h3><p>Partner &amp; painter</p></div>
-      </div>
-      <div class="member" data-reveal style="--d:.12s">
         <span class="ini" aria-hidden="true">D</span>
         <div><h3>Denzel</h3><p>Partner &amp; painter</p></div>
       </div>
-      <div class="member" data-reveal style="--d:.18s">
+      <div class="member" data-reveal style="--d:.12s">
         <span class="ini" aria-hidden="true">W</span>
         <div><h3>Wilson</h3><p>Partner &amp; painter</p></div>
       </div>
@@ -568,7 +588,6 @@
       },
       "foundingDate": "2018",
       "founder": [
-        {"@type":"Person","name":"Elias"},
         {"@type":"Person","name":"Denzel"},
         {"@type":"Person","name":"Wilson"}
       ],
